@@ -1,41 +1,57 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let express = require("express");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const crypto = require("crypto");
+const Razorpay = require("razorpay");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-app.use(logger('dev'));
+dotenv.config();
+let app = express();
+const instance = new Razorpay({
+  key_id: process.env.KEY_ID,
+  key_secret: process.env.KEY_SECRET,
+});
+//Middlewares
+app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
+app.use(bodyParser.json());
+app.set("view engine", "ejs");
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+//Routes
+app.get("/payments", (req, res) => {
+  res.render("payment", { key: process.env.KEY_ID });
+});
+app.post("/api/payment/order", (req, res) => {
+  params = req.body;
+  instance.orders
+    .create(params)
+    .then((data) => {
+      res.send({ sub: data, status: "success" });
+    })
+    .catch((error) => {
+      res.send({ sub: error, status: "failed" });
+    });
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.post("/api/payment/verify", (req, res) => {
+  body = req.body.razorpay_order_id + "|" + req.body.razorpay_payment_id;
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  var expectedSignature = crypto
+    .createHmac("sha256", process.env.KEY_SECRET)
+    .update(body.toString())
+    .digest("hex");
+  console.log("sig" + req.body.razorpay_signature);
+  console.log("sig" + expectedSignature);
+  var response = { status: "failure" };
+  if (expectedSignature === req.body.razorpay_signature)
+    response = { status: "success" };
+  res.send(response);
 });
-
-module.exports = app;
+app.listen("3000", () => {
+  console.log("server started");
+});
