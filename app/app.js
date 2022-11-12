@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
 //Routes
-app.get("/payments", (req, res) => {
+app.get("/", (req, res) => {
   res.render("payment", { key: process.env.KEY_ID });
 });
 app.post("/api/payment/order", (req, res) => {
