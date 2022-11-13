@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prabhat Calendars | Prabhat Print Works & United Multicolour Printers </title>
+    
+    
+        <link rel="stylesheet" href="/css/calendar-stylesheet.css">
+        <link rel="icon" type="image/png" href="/image/cropped-logo-united-32x32.png">
+        <link rel="stylesheet" href="https://use.typekit.net/fef6ybt.css">
+        <script src="/js/cal.js" defer></script>
+        <script>
+            function calInfo(elem) {
+                let calNum = JSON.parse(elem.parentNode.id);
+                console.log(calNum);
+            }
+        </script>
+        <!-- SMOOTH SCROLL -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script>
+            $(function () {
+                $('a[href*=#]:not([href=#])').click(function () {
+                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location
+                        .hostname == this.hostname) {
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        if (target.length) {
+                            $('html,body').animate({
+                                scrollTop: target.offset().top
+                            }, 900);
+                            return false;
+                        }
+                    }
+                });
+            });
+        </script>
+        <!-- End of SMOOTH SCROLL -->
+    
+    
+    </head>
+<body onload="callCalID()">
+    <div class="nav-container" id="home">
+        <div class="nav-wrapper">
+            <a href="" class="name-container">
+                <img src="./image/prabhat-logo-svg.svg" alt="Prabhat Calendars" id="prabhatname">
+                <div class="name-separator"></div>
+                <img src="/image/united-logo-and-name-opt.png" alt="" id="unitedname">
+            </a>
+            <div class="top-contact-container">
+                <h3 style="text-align: center; padding-right:27px; padding-bottom: 6px;">Call us on</h3>
+                <h2 style="text-align: center;" class='top-phone-number'> <a class="top-phone-number"
+                        href="tel:+912024453862">020 24453862</a> | <a class="top-phone-number"
+                        href="tel:+919822082648">+91 9822082648</a></h2>
+                <p style="text-align: center; padding-right:27px; padding-top: 6px; font-family: opulent;">Speak to us right away.
+                    <br>
+                    Monday to Saturday, 10 am to 6 pm</p>
+            </div>
+        </div>
+    </div>
+    <p id="calNum"></p>
+</body>
+</html>

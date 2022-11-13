@@ -366,6 +366,9 @@ app.get("/", (req, res) => {
 app.get("/shop", (req, res) => {
   res.render("shop");
 });
+app.get("/calendar", (req, res) => {
+  res.render("calendar");
+});
 
 app.get("/payments", (req, res) => {
   res.render("payment", {

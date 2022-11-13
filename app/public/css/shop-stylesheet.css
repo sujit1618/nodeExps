@@ -99,6 +99,7 @@ body {
     display: flex;
     background: #ffffff;
     align-items: center;
+    box-shadow: 0px 2px 12px rgba(167, 167, 167, 0.505);
 }
 
 .nav-wrapper {

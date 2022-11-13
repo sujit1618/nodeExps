@@ -22,7 +22,7 @@ let calMenu = {
         "fromqty": "1000",
         "toprice": "47.50",
         "toqty": "250"
-        
+
     },
     37: {
         "name": "37-Sarang",
@@ -130,28 +130,12 @@ let calMenu = {
     }
 };
 
-window.onload = function popCals() {
-    const calsList = document.getElementsByClassName('calendar-option');
-    for (let i = 0; i < calsList.length; i++) {
-        let calID = JSON.parse(calsList[i].id);
-        console.log(calID);
-        calsList[i].querySelector('.calendar-name').innerHTML = calMenu[calID].name;
-        calsList[i].querySelector('.calendar-details').innerHTML = calMenu[calID].description;
+function callCalID() {
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
 
-        calsList[i].getElementsByClassName('cal-img-container')[0].getElementsByClassName('cal-img')[0].setAttribute('src','/image/calendarpngfiles/'+calID+'.png');
-        calsList[i].getElementsByClassName('calendar-price-container')[0].getElementsByClassName('fromrange')[0].getElementsByClassName('price')[0].innerHTML= "Rs. " + calMenu[calID].fromprice + " / copy";
-        calsList[i].getElementsByClassName('calendar-price-container')[0].getElementsByClassName('fromrange')[0].getElementsByClassName('qty')[0].innerHTML=calMenu[calID].fromqty + "+ copies <br> Single colour printing";
-        calsList[i].getElementsByClassName('calendar-price-container')[0].getElementsByClassName('torange')[0].getElementsByClassName('price')[0].innerHTML= "Rs. " + calMenu[calID].toprice + " / copy";
-        calsList[i].getElementsByClassName('calendar-price-container')[0].getElementsByClassName('torange')[0].getElementsByClassName('qty')[0].innerHTML= calMenu[calID].toqty + "+ copies <br> Four colour printing";
-   
-   
-    }
-
-};
-
-function calInfo(elem) {
-    const calNum = elem.parentNode.id;
-    console.log(calNum);
-    const navToAdd = '/calendar?calID='+calNum;
-    window.open(navToAdd);
+    const calID = JSON.parse(urlParams.get('calID'));
+    console.log(calID);
+    document.getElementById('calNum').innerHTML="You chose " + calMenu[calID].name;
 }
