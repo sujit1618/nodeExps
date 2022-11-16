@@ -473,6 +473,7 @@ let calID;
 let unHover = "background-color: #f0f0f0;";
 let hoverStyle = " background: rgb(214,248,255); background: -moz-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); background: -webkit-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); background: linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d6f8ff',endColorstr='#aee8f5',GradientType=1); ";
 let minQty;
+
 function callCalID() {
     const queryString = window.location.search;
     console.log(queryString);
@@ -480,7 +481,6 @@ function callCalID() {
     calID = JSON.parse(urlParams.get('calID'));
     console.log(urlParams.get('calID'));
     console.log(calID);
-    // document.getElementById('calNum').innerHTML="You chose " + calMenu[calID].name;
     document.getElementById('calendar-name').innerHTML = calMenu[calID].name;
     document.getElementById('cal-img').setAttribute('src', '/image/calendarpngfiles/' + calID + '.png');
     document.getElementById('description').innerHTML = calMenu[calID].description;
@@ -523,18 +523,7 @@ function callCalID() {
     }
 
     inksSelection(1);
-
-    // document.getElementById('cal-qty').onkeyup= function(){
-        // if ( document.getElementById('cal-qty').getAttribute('value') != minQty) {
-            // document.getElementById('qty-error').style.display= 'block';
-            // document.getElementById('cal-qty').style.backgroundColor = 'rgb(255, 192, 192)';
-        // }
-        // else{
-            // document.getElementById('qty-error').style.display= 'none';
-            // document.getElementById('cal-qty').style.backgroundColor = '#fff';
-        // }
-        // console.log('one key up');
-    // };
+    calAdv(minQty);
 }
 
 function pageSel(option) {
@@ -609,17 +598,76 @@ function inksSelection(x) {
     document.getElementById('inks-1').style = unHover;
     document.getElementById('inks-2').style = unHover;
     document.getElementById('inks-3').style = unHover;
-    document.getElementById('inks-'+inksSel).style = hoverStyle;
+    document.getElementById('inks-' + inksSel).style = hoverStyle;
 }
 
 // function runQtyCheck() {
-    // if ( document.getElementById('cal-qty').getAttribute('value') != minQty) {
-        // document.getElementById('qty-error').style.display= 'block';
-        // document.getElementById('cal-qty').style.backgroundColor = 'rgb(255, 192, 192)';
-    // }
-    // else{
-        // document.getElementById('qty-error').style.display= 'none';
-        // document.getElementById('cal-qty').style.backgroundColor = '#fff';
-    // }
-    // console.log('one key up');
+// if ( document.getElementById('cal-qty').getAttribute('value') != minQty) {
+// document.getElementById('qty-error').style.display= 'block';
+// document.getElementById('cal-qty').style.backgroundColor = 'rgb(255, 192, 192)';
 // }
+// else{
+// document.getElementById('qty-error').style.display= 'none';
+// document.getElementById('cal-qty').style.backgroundColor = '#fff';
+// }
+// console.log('one key up');
+// }
+
+document.getElementById('cal-qty').onkeyup = function () {
+    let a = document.getElementById('total-amount');
+    let d = document.getElementById('due-amount');
+    if (document.getElementById('cal-qty').value != minQty) {
+        a.innerHTML = "Rs. &#8212;";
+        d.innerHTML = "Rs. &#8212;";
+    }
+    if (document.getElementById('cal-qty').value >= minQty) {
+        calAdv(document.getElementById('cal-qty').value);
+    }
+
+    console.log('one key up');
+};
+
+function calAdv(q){
+    let a = document.getElementById('total-amount');
+    let d = document.getElementById('due-amount');
+    let sheetsChoice = pageOptionsSel;
+    let calNum = calID;
+    let qty = q;
+    let inksChoice = inksSel;
+
+    if (qty > 99 && qty < 250 && menu[calNum][sheetsChoice][100] != null) {
+        qtyChoice = 100;
+    }
+    else if(qty > 149 && qty < 250 && menu[calNum][sheetsChoice][150] != null){
+        qtyChoice = 150;
+    }
+    else if (qty > 249 && qty < 500 && menu[calNum][sheetsChoice][250] != null){
+        qtyChoice = 250;
+    }
+    else if (qty > 499 && qty < 1000 && menu[calNum][sheetsChoice][500] != null){
+        qtyChoice = 500;
+    }
+    else if (qty > 999 && menu[calNum][sheetsChoice][1000] != null){
+        qtyChoice = 1000;
+    }
+    
+    console.log(menu[calNum][sheetsChoice][qtyChoice]);
+    console.log(menu[calNum].name + " " + sheetsChoice + " " + qty + " " + qtyChoice + " " + inksChoice);
+
+    let amount = qty* (menu[calNum][sheetsChoice][qtyChoice].baseRate + ((inksChoice-1)* menu[calNum][sheetsChoice][qtyChoice].extraRate));
+    let roundAmount = Math.round((amount + Number.EPSILON) * 100) / 100;
+    let gst = roundAmount * 0.18;
+    roundGst = Math.round((gst + Number.EPSILON) * 100) / 100;
+    let totalAmount = Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100;
+    let advanceDue = 0.5 * totalAmount;
+    if(totalAmount < 5000){
+        advanceDue = 5000;
+    }
+    a.innerHTML = "Rs. " + totalAmount;
+    d.innerHTML = "Rs. " + advanceDue;
+    document.getElementById('total-for-qty').innerHTML = "including GST, <br> for " + qty + " copies";
+    console.log("Total without GST: " + roundAmount);
+    console.log("GST: " + roundGst);
+    console.log("Total: " + totalAmount);
+    console.log("Advance: " + advanceDue);
+}
