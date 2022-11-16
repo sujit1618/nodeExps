@@ -670,7 +670,7 @@ function calAdv(q){
     roundGst = Math.round((gst + Number.EPSILON) * 100) / 100;
     let totalAmount = Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100;
     let advanceDue = 0.5 * totalAmount;
-    if(totalAmount < 5000){
+    if(advanceDue < 5000){
         advanceDue = 5000;
     }
     a.innerHTML = "Rs. " + totalAmount;
