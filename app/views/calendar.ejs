@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Prabhat Calendars | Prabhat Print Works & United Multicolour Printers </title>
-    
-    
-        <link rel="stylesheet" href="/css/calendar-stylesheet.css">
-        <link rel="icon" type="image/png" href="/image/cropped-logo-united-32x32.png">
-        <link rel="stylesheet" href="https://use.typekit.net/fef6ybt.css">
-        <script src="/js/cal.js" defer></script>
-        <script>
-            function calInfo(elem) {
-                let calNum = JSON.parse(elem.parentNode.id);
-                console.log(calNum);
-            }
-        </script>
-        <!-- SMOOTH SCROLL -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <script>
-            $(function () {
-                $('a[href*=#]:not([href=#])').click(function () {
-                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location
-                        .hostname == this.hostname) {
-                        var target = $(this.hash);
-                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                        if (target.length) {
-                            $('html,body').animate({
-                                scrollTop: target.offset().top
-                            }, 900);
-                            return false;
-                        }
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabhat Calendars | Prabhat Print Works & United Multicolour Printers </title>
+
+
+    <link rel="stylesheet" href="/css/calendar-stylesheet.css">
+    <link rel="icon" type="image/png" href="/image/cropped-logo-united-32x32.png">
+    <link rel="stylesheet" href="https://use.typekit.net/fef6ybt.css">
+    <script src="/js/cal.js" defer></script>
+    <script>
+        function calInfo(elem) {
+            let calNum = JSON.parse(elem.parentNode.id);
+            console.log(calNum);
+        }
+    </script>
+    <!-- SMOOTH SCROLL -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script>
+        $(function () {
+            $('a[href*=#]:not([href=#])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location
+                    .hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 900);
+                        return false;
                     }
-                });
+                }
             });
-        </script>
-        <!-- End of SMOOTH SCROLL -->
-    
-    
-    </head>
+        });
+    </script>
+    <!-- End of SMOOTH SCROLL -->
+
+
+</head>
+
 <body onload="callCalID()">
     <div class="nav-container" id="home">
         <div class="nav-wrapper">
@@ -54,12 +56,199 @@
                 <h2 style="text-align: center;" class='top-phone-number'> <a class="top-phone-number"
                         href="tel:+912024453862">020 24453862</a> | <a class="top-phone-number"
                         href="tel:+919822082648">+91 9822082648</a></h2>
-                <p style="text-align: center; padding-right:27px; padding-top: 6px; font-family: opulent;">Speak to us right away.
+                <p style="text-align: center; padding-right:27px; padding-top: 6px; font-family: opulent;">Speak to us
+                    right away.
                     <br>
                     Monday to Saturday, 10 am to 6 pm</p>
             </div>
         </div>
     </div>
-    <p id="calNum"></p>
+    <div class="nav-1">
+        <a href="/shop/">order online</a>
+        <a href="">Help with customizing calendar</a>
+        <a href="">Contact us</a>
+        <a href="">Go to united multicolour printers ></a>
+    </div>
+    
+    <div class="calendar-container">
+        <h1 id="calendar-name">161-Smash</h1>
+        <div class="cal-images-container">
+            <img id="cal-img" src="/image/calendarpngfiles/161.png" alt="">
+            <!-- <img src="./image/eg/eg131.jpg" alt=""> -->
+        </div>
+        <div class="cal-details-container">
+            <h2 id="description">6 Sheets & 12 Sheets | 17.5 inch x 22.5 inch</h2>
+            <h3>Pages options</h3>
+            <div class="page-options-container">
+                
+                <div class="page-option" id="sheets-12" onclick="pageSel(12)" >
+                    <div class="radio-container"><img src="/image/icons/option.svg" alt=""></div>
+                    <div class="label">Double Sided (12 Sheets)</div>
+                   
+                </div>
+                <div class="page-option" id="sheets-6" onclick="pageSel(6)">
+                    <div class="radio-container"><img src="/image/icons/option.svg" alt=""></div>
+                    <div class="label">Single Sided (6 Sheets)</div>
+                    
+                </div>
+                <div class="page-option" id="sheets-4" onclick="pageSel(4)">
+                    <div class="radio-container"><img src="/image/icons/option.svg" alt=""></div>
+                    <div class="label">Single Sided (4 Sheets)</div>
+                </div>
+            </div>
+            <h3>Customization inks options</h3>
+            <div class="ink-colours-container">
+
+                <div class="inks-option" id="inks-1" onclick="inksSelection(1)">
+                    <div class="radio-container"><img src="/image/icons/option.svg" alt=""></div>
+                    <div class="label">One colour <br> (Single colour printing)</div>
+                </div>
+                <div class="inks-option" id="inks-2" onclick="inksSelection(2)">
+                    <div class="radio-container"><img src="/image/icons/option.svg" alt=""></div>
+                    <div class="label" >Two colours <br> (Two colour printing)</div>
+                </div>
+                <div class="inks-option" id="inks-3" onclick="inksSelection(3)">
+                    <div class="radio-container"><img src="/image/icons/option.svg" alt=""></div>
+                    <div class="label">Three or more colours <br> (Four colour printing)</div>
+                </div>
+            </div>
+            <div class="rate-table-container">
+                <h3 id="rate-table-h3">Single Sided (6 Sheets) calendar bulk prices</h3>
+                <table id="6-sheets-table">
+                    <tr>
+                        <th>Qty</th>
+                        <th>Single Colour <br> (incl. 18% GST)</th>
+                        <th>Per Extra Colour <br> (incl. 18% GST)</th>
+                    </tr>
+                    <tr id="table-6-100">
+                        <td>100 - 249</td>
+                        <td id="base-6-100">44.44</td>
+                        <td id="extra-6-100">44</td>
+                    </tr>
+                    <tr id="table-6-150">
+                        <td >150 - 249</td>
+                        <td id="base-6-150">44.44</td>
+                        <td id="extra-6-150">44</td>
+                    </tr>
+                    <tr id="table-6-250">
+                        <td >250 - 499</td>
+                        <td id="base-6-250">44.44</td>
+                        <td id="extra-6-250">44</td>
+                    </tr>
+                    <tr id="table-6-500">
+                        <td>500 - 999</td>
+                        <td id="base-6-500">44.44</td>
+                        <td id="extra-6-500">44</td>
+                    </tr>
+                    <tr id="table-6-1000">
+                        <td >1000+</td>
+                        <td id="base-6-1000">44.44</td>
+                        <td id="extra-6-1000">44</td>
+                    </tr>
+                </table>
+                <table id="12-sheets-table">
+                    <tr>
+                        <th>Qty</th>
+                        <th>Single Colour <br> (incl. 18% GST)</th>
+                        <th>Per Extra Colour <br> (incl. 18% GST)</th>
+                    </tr>
+                    <tr id="table-12-100">
+                        <td>100 - 249</td>
+                        <td id="base-12-100">44.44</td>
+                        <td id="extra-12-100">44</td>
+                    </tr>
+                    <tr id="table-12-150">
+                        <td >150 - 249</td>
+                        <td id="base-12-150">44.44</td>
+                        <td id="extra-12-150">44</td>
+                    </tr>
+                    <tr id="table-12-250">
+                        <td >250 - 499</td>
+                        <td id="base-12-250">44.44</td>
+                        <td id="extra-12-250">44</td>
+                    </tr>
+                    <tr id="table-12-500">
+                        <td>500 - 999</td>
+                        <td id="base-12-500">44.44</td>
+                        <td id="extra-12-500">44</td>
+                    </tr>
+                    <tr id="table-12-1000">
+                        <td >1000+</td>
+                        <td id="base-12-1000">44.44</td>
+                        <td id="extra-12-1000">44</td>
+                    </tr>
+                </table>
+                <table id="4-sheets-table">
+                    <tr>
+                        <th>Qty</th>
+                        <th>Single Colour <br> (incl. 18% GST)</th>
+                        <th>Per Extra Colour <br> (incl. 18% GST)</th>
+                    </tr>
+                    <tr id="table-4-100">
+                        <td>100 - 249</td>
+                        <td id="base-4-100">44.44</td>
+                        <td id="extra-4-100">44</td>
+                    </tr>
+                    <tr id="table-4-150">
+                        <td >150 - 249</td>
+                        <td id="base-4-150">44.44</td>
+                        <td id="extra-4-150">44</td>
+                    </tr>
+                    <tr id="table-4-250">
+                        <td >250 - 499</td>
+                        <td id="base-4-250">44.44</td>
+                        <td id="extra-4-250">44</td>
+                    </tr>
+                    <tr id="table-4-500">
+                        <td>500 - 999</td>
+                        <td id="base-4-500">44.44</td>
+                        <td id="extra-4-500">44</td>
+                    </tr>
+                    <tr id="table-4-1000">
+                        <td >1000+</td>
+                        <td id="base-4-1000">44.44</td>
+                        <td id="extra-4-1000">44</td>
+                    </tr>
+                </table>
+                
+            </div>
+            
+        </div>
+        <div class="payments-container">
+            <div class="quantity-container">
+                <h3 id="min-qty-h3">Enter quantity (min. 250)</h3>
+                <form class="input-container">
+                    <input type="number" name="" id="cal-qty" value="250" min="250">
+                    <!-- <input id="getQuote" class="button-1" type="submit" value="get quote"> -->
+                
+                <div class="error-message" id="qty-error">
+                    Please enter quantity greater than 250
+                </div>
+            </div>
+            <div class="pricing-container">
+                <div class="total-container">
+                    <div class="label-container">
+                        <h3 class="no-margin-h3">Total Amount</h3>
+                        <div id="total-for-qty" class="for-qty"> including GST, <br> for 250 copies</div>
+                    </div>
+                    <h3 class="no-margin-h3" id="total-amount">Rs. 4400000</h3>
+                </div>
+                <div class="advance-container">
+                    <div class="label-container">
+                        <h3 class="no-margin-h3">Advance</h3>
+                        <div class="for-qty">(for booking order)</div>
+                    </div>
+                    <h3 class="no-margin-h3" id="due-amount">Rs. 2200000</h3>
+                    
+                </div>
+                <input type="submit" id="payButton" value="Book Order >" class="button-1"></button>
+
+            </form>
+
+            </div>
+        </div>
+       
+    </div>
 </body>
+
 </html>

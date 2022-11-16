@@ -13,7 +13,7 @@ b {
   }
 
   @font-face {
-    font-family: notodev;
+    font-family: 'Helvetica Neue', sans-serif, notodev;
     src: url(/fonts/notoDev2.ttf);
   }
 
@@ -28,7 +28,7 @@ p {
 
 h1 {
     /* font-family: ibm-plex-sans, sans-serif; */
-    font-family: notodev,notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif, notodev,notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     /* font-family: opulent; */
     line-height: 130%;
     padding: 0;
@@ -42,7 +42,7 @@ div {
 }
 
 h2 {
-    /* font-family: notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    /* font-family: 'Helvetica Neue', sans-serif, notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     /* font-family: noto-sans, sans-serif; */
     font-family: opulent;
     font-size: 22px;
@@ -57,7 +57,7 @@ h3 {
 }
 
 p {
-    font-family: notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif, notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-family: noto-sans, sans-serif;
     font-weight: 400;
     font-size: 15px;
@@ -81,7 +81,7 @@ p {
 
 body {
     animation: 800ms cubic-bezier(0.445, 0.05, 0.55, 0.95) slow-appear;
-    /* font-family: notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    /* font-family: 'Helvetica Neue', sans-serif, notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     /* font-family: noto-sans, sans-serif; */
     font-family: opulent;
     font-weight: 400;
@@ -190,19 +190,28 @@ body {
 
 .button-1 {
     display: block;
-    font-family: optima;
+    font-family: 'Helvetica Neue', sans-serif, notodev;
     outline: none;
     background-color: #161a1f;
     background-color: #32213A;
     border: none;
-    font-size: 13px;
-    text-transform: uppercase;
+    font-size: 15px;
+    text-transform: capitalize;
     color: white;
-    font-weight: 400;
+    font-weight: 600;
     padding: 15px 36px 15px 36px;
     transition: cubic-bezier(0.165, 0.84, 0.44, 1) 240ms;
     width: fit-content;
     cursor: pointer;
+    border-radius: 5px;
+
+    background: rgb(244,174,94);
+    background: -moz-linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%);
+    background: linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f4ae5e",endColorstr="#e0850f",GradientType=1);
+
+    box-shadow: 0px 2px rgba(167, 167, 167, 0.54);
 }
 
 .button-1:hover {
@@ -247,8 +256,9 @@ body {
 .nav-1 a{
     display: block;
     color: #fff;
-    text-transform: uppercase;
-    font-size: 13px;
+    text-transform: capitalize;
+    font-size: 15px;
+    font-weight: 600px;
 }
 
 .cta-container{
@@ -332,7 +342,7 @@ body {
     margin-bottom: 0px;
     font-weight: 700;
     font-size: 18px;
-    font-family: notodev;
+    font-family: 'Helvetica Neue', sans-serif, notodev;
 }
 
 .calendar-details{
@@ -356,7 +366,7 @@ body {
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
     font-weight: 700;
-    font-family: notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif, notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .price{
@@ -385,7 +395,7 @@ body {
 .to{
     /* height: 1px; */
     /* background-color: #000; */
-    font-family: notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif, notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 700;
     width: 14px;
     padding-bottom: 12px;
