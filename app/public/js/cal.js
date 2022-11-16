@@ -508,13 +508,21 @@ function callCalID() {
     }
     pageOptionSelection();
 
+   
     if (calID == 171 || calID == 181) {
         document.getElementById('cal-qty').setAttribute('value', '100');
         document.getElementById('cal-qty').setAttribute('min', '100');
         document.getElementById('total-for-qty').innerHTML = "including GST, <br> for " + '100' + " copies";
         document.getElementById('min-qty-h3').innerHTML = "Enter quantity (min. " + '100' + ")";
         minQty = 100;
-    } else {
+    } else if (calID == 161) {
+        document.getElementById('cal-qty').setAttribute('value', '250');
+        document.getElementById('cal-qty').setAttribute('min', '250');
+        document.getElementById('total-for-qty').innerHTML = "including GST, <br> for " + '250' + " copies";
+        document.getElementById('min-qty-h3').innerHTML = "Enter quantity (min. " + '250' + ")";
+        minQty = 250;
+    }
+     else {
         document.getElementById('cal-qty').setAttribute('value', JSON.parse(calMenu[calID].toqty));
         document.getElementById('cal-qty').setAttribute('min', JSON.parse(calMenu[calID].toqty));
         document.getElementById('total-for-qty').innerHTML = "including GST, <br> for " + (calMenu[calID].toqty) + " copies";
@@ -559,6 +567,7 @@ function pageSel(option) {
         }
     }
 
+    calAdv(document.getElementById('cal-qty').value);
 }
 
 function pageOptionSelection() {
@@ -599,6 +608,7 @@ function inksSelection(x) {
     document.getElementById('inks-2').style = unHover;
     document.getElementById('inks-3').style = unHover;
     document.getElementById('inks-' + inksSel).style = hoverStyle;
+    calAdv(document.getElementById('cal-qty').value);
 }
 
 // function runQtyCheck() {

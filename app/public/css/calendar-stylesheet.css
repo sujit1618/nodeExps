@@ -240,7 +240,7 @@ body {
     width: 88%;
     max-width: 1269px;
     display: grid;
-    grid-template-columns: auto 1.4fr 1fr;
+    grid-template-columns: auto 1.4fr 1.2fr;
     grid-template-rows: auto auto;
     column-gap: 36px;
     row-gap: 18px;
