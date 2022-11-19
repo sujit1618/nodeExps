@@ -475,6 +475,7 @@ let hoverStyle = " background: rgb(214,248,255); background: -moz-linear-gradien
 let minQty;
 
 let due;
+let orderQty;
 
 function callCalID() {
     const queryString = window.location.search;
@@ -676,6 +677,7 @@ function calAdv(q){
         advanceDue = 5000;
     }
     due = advanceDue*100;
+    orderQty = qty;
     a.innerHTML = "Rs. " + totalAmount;
     d.innerHTML = "Rs. " + advanceDue;
     document.getElementById('total-for-qty').innerHTML = "including GST, <br> for " + qty + " copies";

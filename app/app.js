@@ -4,6 +4,144 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const crypto = require("crypto");
 const Razorpay = require("razorpay");
+let due;
+let orderDeets;
+let sheetsChoice;
+let calNum;
+let qty;
+let inksChoice;
+
+let calMenu = {
+  25: {
+    "name": "25-कालदर्शिका",
+    "description": "6 Sheets | 11 inch x 18 inch",
+    "fromprice": "20.95",
+    "fromqty": "1000",
+    "toprice": "46.32",
+    "toqty": "250"
+  },
+  31: {
+    "name": "31-उमंग",
+    "description": "6 Sheets | 11 inch x 18 inch",
+    "fromprice": "20.95",
+    "fromqty": "1000",
+    "toprice": "46.32",
+    "toqty": "250"
+  },
+  35: {
+    "name": "35-Tarang",
+    "description": "6 Sheets | 11 inch x 18 inch",
+    "fromprice": "22.13",
+    "fromqty": "1000",
+    "toprice": "47.50",
+    "toqty": "250"
+
+  },
+  37: {
+    "name": "37-Sarang",
+    "description": "6 Sheets | 11 inch x 18 inch",
+    "fromprice": "22.13",
+    "fromqty": "1000",
+    "toprice": "47.50",
+    "toqty": "250"
+  },
+  51: {
+    "name": "51-नवनिर्णय",
+    "description": "6 Sheets | 14.5 inch x 19 inch",
+    "fromprice": "29.50",
+    "fromqty": "1000",
+    "toprice": "48.97",
+    "toqty": "250"
+  },
+  55: {
+    "name": "55-Stride",
+    "description": "6 Sheets | 14.5 inch x 19 inch",
+    "fromprice": "29.50",
+    "fromqty": "1000",
+    "toprice": "57.23",
+    "toqty": "250"
+  },
+  111: {
+    "name": "111-Grace",
+    "description": "12 Sheets | 14.5 inch x 19 inch",
+    "fromprice": "41.30",
+    "fromqty": "1000",
+    "toprice": "102.66",
+    "toqty": "100"
+  },
+  141: {
+    "name": "141-Bright",
+    "description": "12 Sheets | 14.5 inch x 19 inch",
+    "fromprice": "41.30",
+    "fromqty": "1000",
+    "toprice": "102.66",
+    "toqty": "100",
+  },
+  161: {
+    "name": "161-Smash",
+    "description": "6 Sheets & 12 Sheets | 17.5 inch x 22.5 inch",
+    "fromprice": "40.12",
+    "fromqty": "(6 Sheets) 1000",
+    "toprice": "86.44",
+    "toqty": "(12 Sheets) 250"
+  },
+  81: {
+    "name": "81-Spark",
+    "description": "6 Sheets | 14.5 inch x 19 inch",
+    "fromprice": "28.32",
+    "fromqty": "1000",
+    "toprice": "56.05",
+    "toqty": "250",
+  },
+  171: {
+    "name": "171-Majestic",
+    "description": "6 Sheets & 12 Sheets | 19 inch x 29 inch",
+    "fromprice": "51.92",
+    "fromqty": "(6 Sheets) 1000",
+    "toprice": "133.34",
+    "toqty": "(12 Sheets) 100"
+  },
+  181: {
+    "name": "181-Classic",
+    "description": "6 Sheets & 12 Sheets | 19 inch x 29 inch",
+    "fromprice": "62.54",
+    "fromqty": "(6 Sheets) 1000",
+    "toprice": "143.96",
+    "toqty": "(12 Sheets) 100",
+  },
+  131: {
+    "name": "131-Serene",
+    "description": "6 Sheets | 19 inch x 29 inch",
+    "fromprice": "41.30",
+    "fromqty": "1000",
+    "toprice": "102.66",
+    "toqty": "100"
+  },
+  91: {
+    "name": "91-Glimpse",
+    "description": "4 Sheets | 19 inch x 29 inch",
+    "fromprice": "33.34",
+    "fromqty": "1000",
+    "toprice": "56.94",
+    "toqty": "250"
+  },
+  27: {
+    "name": "27-जीवन अमृत",
+    "description": "6 Sheets | 11 inch x 18 inch",
+    "fromprice": "33.34",
+    "fromqty": "1000",
+    "toprice": "67.26",
+    "toqty": "150"
+  },
+  17: {
+    "name": "17-Seasons",
+    "description": "6 Sheets | 5 inch x 10 inch",
+    "fromprice": "12.39",
+    "fromqty": "1000",
+    "toprice": "24.07",
+    "toqty": "500"
+  }
+};
 
 let menu = {
   25: {
@@ -367,7 +505,7 @@ app.get("/shop", (req, res) => {
   res.render("shop");
 });
 app.get("/calendar", (req, res) => {
-  res.render("calendar",{
+  res.render("calendar", {
     key: process.env.KEY_ID
   });
 });
@@ -422,7 +560,23 @@ app.post("/api/payment/verify", (req, res) => {
 //CAL EJS
 //Create order backend
 app.post("/api/calendar/order", (req, res) => {
-  params = req.body;
+  // let sheetsChoice = pageOptionsSel;
+  // let calNum = calID;
+  // let qty = q;
+  // let inksChoice = inksSel;
+  orderDeets = req.body;
+  console.log(orderDeets);
+  sheetsChoice = orderDeets.pagesOption;
+  calNum = orderDeets.cal;
+  qty = orderDeets.quantity;
+  inksChoice = orderDeets.inks;
+  calAdv();
+  params = {
+    amount: due,
+    currency: "INR",
+    receipt: "wthcoding001",
+    payment_capture: '1',
+  };
   instance.orders
     .create(params)
     .then((data) => {
@@ -458,6 +612,39 @@ app.post("/api/calendar/verify", (req, res) => {
     };
   res.send(response);
 });
+
+function calAdv() {
+
+  if (qty > 99 && qty < 250 && menu[calNum][sheetsChoice][100] != null) {
+    qtyChoice = 100;
+  } else if (qty > 149 && qty < 250 && menu[calNum][sheetsChoice][150] != null) {
+    qtyChoice = 150;
+  } else if (qty > 249 && qty < 500 && menu[calNum][sheetsChoice][250] != null) {
+    qtyChoice = 250;
+  } else if (qty > 499 && qty < 1000 && menu[calNum][sheetsChoice][500] != null) {
+    qtyChoice = 500;
+  } else if (qty > 999 && menu[calNum][sheetsChoice][1000] != null) {
+    qtyChoice = 1000;
+  }
+
+  console.log(menu[calNum][sheetsChoice][qtyChoice]);
+  console.log(menu[calNum].name + " " + sheetsChoice + " " + qty + " " + qtyChoice + " " + inksChoice);
+
+  let amount = qty * (menu[calNum][sheetsChoice][qtyChoice].baseRate + ((inksChoice - 1) * menu[calNum][sheetsChoice][qtyChoice].extraRate));
+  let roundAmount = Math.round((amount + Number.EPSILON) * 100) / 100;
+  let gst = roundAmount * 0.18;
+  roundGst = Math.round((gst + Number.EPSILON) * 100) / 100;
+  let totalAmount = Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100;
+  let advanceDue = 0.5 * totalAmount;
+  if (advanceDue < 5000) {
+    advanceDue = 5000;
+  }
+  due = advanceDue * 100;
+  console.log("Total without GST: " + roundAmount);
+  console.log("GST: " + roundGst);
+  console.log("Total: " + totalAmount);
+  console.log("Advance: " + advanceDue);
+}
 
 app.listen("3000", () => {
   console.log("server started");
