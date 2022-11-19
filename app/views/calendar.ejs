@@ -296,8 +296,10 @@
             var options = {
                 "key": "<%= key %>",
                 "currency": "INR",
-                "name": "131-Serene | Prabhat Calendars",
-                "description": "Advance for 450qty of 2 colour 131-Serene Calendars",
+                "name": calMenu[calID].name + " | Prabhat Calendars",
+                // "Advance for " + orderQty + " qty of " + inksSel + " colour printing on "+ calMenu[calID].name + " calendar (" + pageOptionsSel + " sheets type" 
+                // "description": "Advance for 450qty of 2 colour 131-Serene Calendars",
+                "description": "Advance for " + orderQty + " qty of " + inksSel + " colour printing on "+ calMenu[calID].name + " calendar (" + pageOptionsSel + " sheets type)",
                 "order_id": document.getElementById("rzp-text").value,
                 "handler": function (response) {
                     document.getElementById('order-pay-id').value = response.razorpay_payment_id;

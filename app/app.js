@@ -4,7 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const crypto = require("crypto");
 const Razorpay = require("razorpay");
-let due;
+let backDue;
 let orderDeets;
 let sheetsChoice;
 let calNum;
@@ -572,7 +572,7 @@ app.post("/api/calendar/order", (req, res) => {
   inksChoice = orderDeets.inks;
   calAdv();
   params = {
-    amount: due,
+    amount: backDue,
     currency: "INR",
     receipt: "wthcoding001",
     payment_capture: '1',
@@ -639,7 +639,7 @@ function calAdv() {
   if (advanceDue < 5000) {
     advanceDue = 5000;
   }
-  due = advanceDue * 100;
+  backDue = advanceDue * 100;
   console.log("Total without GST: " + roundAmount);
   console.log("GST: " + roundGst);
   console.log("Total: " + totalAmount);
