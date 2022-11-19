@@ -474,6 +474,8 @@ let unHover = "background-color: #f0f0f0;";
 let hoverStyle = " background: rgb(214,248,255); background: -moz-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); background: -webkit-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); background: linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d6f8ff',endColorstr='#aee8f5',GradientType=1); ";
 let minQty;
 
+let due;
+
 function callCalID() {
     const queryString = window.location.search;
     console.log(queryString);
@@ -673,6 +675,7 @@ function calAdv(q){
     if(advanceDue < 5000){
         advanceDue = 5000;
     }
+    due = advanceDue*100;
     a.innerHTML = "Rs. " + totalAmount;
     d.innerHTML = "Rs. " + advanceDue;
     document.getElementById('total-for-qty').innerHTML = "including GST, <br> for " + qty + " copies";

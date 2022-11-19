@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prabhat Calendars | Prabhat Print Works & United Multicolour Printers </title>
-
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
     <link rel="stylesheet" href="/css/calendar-stylesheet.css">
     <link rel="icon" type="image/png" href="/image/cropped-logo-united-32x32.png">
@@ -69,7 +69,7 @@
         <a href="">Contact us</a>
         <a href="">Go to united multicolour printers ></a>
     </div>
-    
+
     <div class="calendar-container">
         <h1 id="calendar-name">161-Smash</h1>
         <div class="cal-images-container">
@@ -80,16 +80,16 @@
             <h2 id="description">6 Sheets & 12 Sheets | 17.5 inch x 22.5 inch</h2>
             <h3>Pages options</h3>
             <div class="page-options-container">
-                
-                <div class="page-option" id="sheets-12" onclick="pageSel(12)" >
+
+                <div class="page-option" id="sheets-12" onclick="pageSel(12)">
                     <div class="radio-container"><img src="/image/icons/option.svg" alt=""></div>
                     <div class="label">Double Sided (12 Sheets)</div>
-                   
+
                 </div>
                 <div class="page-option" id="sheets-6" onclick="pageSel(6)">
                     <div class="radio-container"><img src="/image/icons/option.svg" alt=""></div>
                     <div class="label">Single Sided (6 Sheets)</div>
-                    
+
                 </div>
                 <div class="page-option" id="sheets-4" onclick="pageSel(4)">
                     <div class="radio-container"><img src="/image/icons/option.svg" alt=""></div>
@@ -105,7 +105,7 @@
                 </div>
                 <div class="inks-option" id="inks-2" onclick="inksSelection(2)">
                     <div class="radio-container"><img src="/image/icons/option.svg" alt=""></div>
-                    <div class="label" >Two colours <br> (Two colour printing)</div>
+                    <div class="label">Two colours <br> (Two colour printing)</div>
                 </div>
                 <div class="inks-option" id="inks-3" onclick="inksSelection(3)">
                     <div class="radio-container"><img src="/image/icons/option.svg" alt=""></div>
@@ -126,12 +126,12 @@
                         <td id="extra-6-100">44</td>
                     </tr>
                     <tr id="table-6-150">
-                        <td >150 - 249</td>
+                        <td>150 - 249</td>
                         <td id="base-6-150">44.44</td>
                         <td id="extra-6-150">44</td>
                     </tr>
                     <tr id="table-6-250">
-                        <td >250 - 499</td>
+                        <td>250 - 499</td>
                         <td id="base-6-250">44.44</td>
                         <td id="extra-6-250">44</td>
                     </tr>
@@ -141,7 +141,7 @@
                         <td id="extra-6-500">44</td>
                     </tr>
                     <tr id="table-6-1000">
-                        <td >1000+</td>
+                        <td>1000+</td>
                         <td id="base-6-1000">44.44</td>
                         <td id="extra-6-1000">44</td>
                     </tr>
@@ -158,12 +158,12 @@
                         <td id="extra-12-100">44</td>
                     </tr>
                     <tr id="table-12-150">
-                        <td >150 - 249</td>
+                        <td>150 - 249</td>
                         <td id="base-12-150">44.44</td>
                         <td id="extra-12-150">44</td>
                     </tr>
                     <tr id="table-12-250">
-                        <td >250 - 499</td>
+                        <td>250 - 499</td>
                         <td id="base-12-250">44.44</td>
                         <td id="extra-12-250">44</td>
                     </tr>
@@ -173,7 +173,7 @@
                         <td id="extra-12-500">44</td>
                     </tr>
                     <tr id="table-12-1000">
-                        <td >1000+</td>
+                        <td>1000+</td>
                         <td id="base-12-1000">44.44</td>
                         <td id="extra-12-1000">44</td>
                     </tr>
@@ -190,12 +190,12 @@
                         <td id="extra-4-100">44</td>
                     </tr>
                     <tr id="table-4-150">
-                        <td >150 - 249</td>
+                        <td>150 - 249</td>
                         <td id="base-4-150">44.44</td>
                         <td id="extra-4-150">44</td>
                     </tr>
                     <tr id="table-4-250">
-                        <td >250 - 499</td>
+                        <td>250 - 499</td>
                         <td id="base-4-250">44.44</td>
                         <td id="extra-4-250">44</td>
                     </tr>
@@ -205,14 +205,14 @@
                         <td id="extra-4-500">44</td>
                     </tr>
                     <tr id="table-4-1000">
-                        <td >1000+</td>
+                        <td>1000+</td>
                         <td id="base-4-1000">44.44</td>
                         <td id="extra-4-1000">44</td>
                     </tr>
                 </table>
-                
+
             </div>
-            
+
         </div>
         <div class="payments-container">
             <div class="quantity-container">
@@ -220,7 +220,7 @@
                 <form class="input-container">
                     <input type="number" name="" id="cal-qty" value="250" min="250">
                     <!-- <input id="getQuote" class="button-1" type="submit" value="get quote"> -->
-                
+                </form>
                 <div class="error-message" id="qty-error">
                     Please enter quantity greater than 250
                 </div>
@@ -239,29 +239,39 @@
                         <div class="for-qty">(for booking order)</div>
                     </div>
                     <h3 class="no-margin-h3" id="due-amount">Rs. 2200000</h3>
-                    
-                </div>
-                <input type="submit" id="payButton" value="Book Order >" class="button-1"></button>
 
-            </form>
+                </div>
+                <button id="order-button1" class="button-1">Book Order ></button>
 
             </div>
         </div>
-       
+
     </div>
+    <label for="">Order id: </label>
+    <input type="text" name="" id="rzp-text">
+    <br>
+    <button id="rzp-button1">Checkout</button>
+    <label for="">Order id :</label>
+    <input type="text" id="order-id">
+    <label for="">Payment id :</label>
+    <input type="text" id="order-pay-id">
+    <label for="">Order signature :</label>
+    <input type="text" id="order-sig">
+    <br>
+    <button id="verify-button1">Verify </button>
 
     <script>
         //ORDER CREATION
-        document.getElementById("order-button1").onclick = function(e) {
-            var url = "/api/payment/order";
+        document.getElementById("order-button1").onclick = function (e) {
+            var url = "/api/calendar/order";
             var params = {
-                amount: document.getElementById("order-amt").value,
+                amount: due,
                 currency: "INR",
                 receipt: "wthcoding001",
                 payment_capture: '1'
             };
             var xmlHttp = new XMLHttpRequest();
-            xmlHttp.onreadystatechange = function(res) {
+            xmlHttp.onreadystatechange = function (res) {
                 if (xmlHttp.readyState === 4) {
                     res = JSON.parse(xmlHttp.responseText);
                     document.getElementById("rzp-text").value = res.sub.id
@@ -274,15 +284,15 @@
     </script>
     <script>
         //CHECKOUTT INITIATE
-        document.getElementById("rzp-button1").onclick = function(e) {
-    
+        document.getElementById("rzp-button1").onclick = function (e) {
+
             var options = {
                 "key": "<%= key %>",
                 "currency": "INR",
                 "name": "131-Serene | Prabhat Calendars",
                 "description": "Advance for 450qty of 2 colour 131-Serene Calendars",
                 "order_id": document.getElementById("rzp-text").value,
-                "handler": function(response) {
+                "handler": function (response) {
                     document.getElementById('order-pay-id').value = response.razorpay_payment_id;
                     document.getElementById('order-id').value = response.razorpay_order_id;
                     document.getElementById('order-sig').value = response.razorpay_signature;
@@ -298,15 +308,15 @@
     </script>
     <script>
         //VERIFICATION
-        document.getElementById('verify-button1').onclick = function(e) {
-            var url = '/api/payment/verify';
+        document.getElementById('verify-button1').onclick = function (e) {
+            var url = '/api/calendar/verify';
             var params = {
                 razorpay_order_id: document.getElementById('order-id').value,
                 razorpay_payment_id: document.getElementById('order-pay-id').value,
                 razorpay_signature: document.getElementById('order-sig').value
             };
             var xmlHttp = new XMLHttpRequest();
-            xmlHttp.onreadystatechange = function(res) {
+            xmlHttp.onreadystatechange = function (res) {
                 if (xmlHttp.readyState === 4) {
                     alert(xmlHttp.responseText);
                 }
