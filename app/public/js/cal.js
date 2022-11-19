@@ -681,3 +681,4 @@ function calAdv(q){
     console.log("Total: " + totalAmount);
     console.log("Advance: " + advanceDue);
 }
+
