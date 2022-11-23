@@ -580,12 +580,16 @@ app.post("/api/calendar/order", (req, res) => {
   instance.orders
     .create(params)
     .then((data) => {
+      console.log('Order generated');
       res.send({
         sub: data,
         status: "success"
       });
     })
     .catch((error) => {
+      console.log('error creating order');
+      console.log('params amount: ' + params.amount);
+      // console.log('data: ' + data);
       res.send({
         sub: error,
         status: "failed"
@@ -627,23 +631,27 @@ function calAdv() {
     qtyChoice = 1000;
   }
 
-  console.log(menu[calNum][sheetsChoice][qtyChoice]);
-  console.log(menu[calNum].name + " " + sheetsChoice + " " + qty + " " + qtyChoice + " " + inksChoice);
+  
 
   let amount = qty * (menu[calNum][sheetsChoice][qtyChoice].baseRate + ((inksChoice - 1) * menu[calNum][sheetsChoice][qtyChoice].extraRate));
   let roundAmount = Math.round((amount + Number.EPSILON) * 100) / 100;
   let gst = roundAmount * 0.18;
   roundGst = Math.round((gst + Number.EPSILON) * 100) / 100;
-  let totalAmount = Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100;
-  let advanceDue = 0.5 * totalAmount;
+  let totalAmount = (Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100).toFixed(2);
+  let advanceDue = (0.5 * totalAmount).toFixed(2);
   if (advanceDue < 5000) {
     advanceDue = 5000;
   }
-  backDue = advanceDue * 100;
+  backDue = (advanceDue * 100).toFixed(0);
+  console.log('============== APP ============');
+  console.log(menu[calNum].name + " " + sheetsChoice + " sheets | " + qty + " qty |  " + qtyChoice + " band | " + inksChoice + " inks printing");
+  console.log(menu[calNum][sheetsChoice][qtyChoice]);
+  console.log("");
   console.log("Total without GST: " + roundAmount);
   console.log("GST: " + roundGst);
   console.log("Total: " + totalAmount);
-  console.log("Advance: " + advanceDue);
+  console.log("Advance: " + advanceDue + " " + backDue);
+  console.log('===============================');
 }
 
 app.listen("3000", () => {

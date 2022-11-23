@@ -471,7 +471,9 @@ let inksSel = 1;
 let calID;
 
 let unHover = "background-color: #f0f0f0;";
-let hoverStyle = " background: rgb(214,248,255); background: -moz-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); background: -webkit-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); background: linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d6f8ff',endColorstr='#aee8f5',GradientType=1); ";
+let hoverStyle = " background: rgb(214,248,255); background: -moz-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); background: -webkit-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); background: linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d6f8ff',endColorstr='#aee8f5',GradientType=1);";
+let inactiveButton = "background: #c0c0c0;";
+let activeButton = "background: rgb(244,174,94); background: -moz-linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%); background: -webkit-linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%); background: linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4ae5e',endColorstr='#e0850f,GradientType=1);";
 let minQty;
 
 let due;
@@ -485,7 +487,8 @@ function callCalID() {
     console.log(urlParams.get('calID'));
     console.log(calID);
     document.getElementById('calendar-name').innerHTML = calMenu[calID].name;
-    document.getElementById('cal-img').setAttribute('src', '/image/calendarpngfiles/' + calID + '.png');
+    // document.getElementById('cal-img').setAttribute('src', '/image/calendarpngfiles/' + calID + '.png');
+    document.getElementById('cal-img').setAttribute('src', '/image/temps/' + calID + '.jpg');
     document.getElementById('description').innerHTML = calMenu[calID].description;
 
     document.getElementById('sheets-6').style.display = 'none';
@@ -629,12 +632,19 @@ function inksSelection(x) {
 document.getElementById('cal-qty').onkeyup = function () {
     let a = document.getElementById('total-amount');
     let d = document.getElementById('due-amount');
-    if (document.getElementById('cal-qty').value != minQty) {
+    if (document.getElementById('cal-qty').value < minQty) {
         a.innerHTML = "Rs. &#8212;";
         d.innerHTML = "Rs. &#8212;";
+        document.getElementById('qty-error').style.display='block';
+        document.getElementById('order-button1').style = inactiveButton;
+        document.getElementById('qty-error').innerHTML='Please enter quantity <br> greater than ' + minQty;
+        document.getElementById('cal-qty').style = "background: #fff7f7;";
     }
     if (document.getElementById('cal-qty').value >= minQty) {
+        document.getElementById('order-button1').style = activeButton;
         calAdv(document.getElementById('cal-qty').value);
+        document.getElementById('cal-qty').style = "background: #fff;";
+        document.getElementById('qty-error').style.display='none';
     }
 
     console.log('one key up');
@@ -671,8 +681,8 @@ function calAdv(q){
     let roundAmount = Math.round((amount + Number.EPSILON) * 100) / 100;
     let gst = roundAmount * 0.18;
     roundGst = Math.round((gst + Number.EPSILON) * 100) / 100;
-    let totalAmount = Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100;
-    let advanceDue = 0.5 * totalAmount;
+    let totalAmount = (Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100).toFixed(2);
+    let advanceDue = (0.5 * totalAmount).toFixed(2);
     if(advanceDue < 5000){
         advanceDue = 5000;
     }
