@@ -322,7 +322,9 @@ body {
 }
 
 .cal-img-container{
-    background-color: #FFE1C5;
+    padding: 24px 0 0 0;
+    /* background-color: #FFE1C5; */
+    background-color: #FDE4CC;
     /* background-color: rgb(236, 236, 236); */
     /* background-image: url(./images/paperbg.jpg); */
     /* background-attachment: fixed; */
@@ -333,7 +335,7 @@ body {
 
 .cal-img{
     display: block;
-    height: 100%;
+    width: 99%;
     margin: 0 auto 0 auto;
     
 }

@@ -138,7 +138,8 @@ window.onload = function popCals() {
         calsList[i].querySelector('.calendar-name').innerHTML = calMenu[calID].name;
         calsList[i].querySelector('.calendar-details').innerHTML = calMenu[calID].description;
 
-        calsList[i].getElementsByClassName('cal-img-container')[0].getElementsByClassName('cal-img')[0].setAttribute('src','/image/calendarpngfiles/'+calID+'.png');
+        // calsList[i].getElementsByClassName('cal-img-container')[0].getElementsByClassName('cal-img')[0].setAttribute('src','/image/calendarpngfiles/'+calID+'.png');
+        calsList[i].getElementsByClassName('cal-img-container')[0].getElementsByClassName('cal-img')[0].setAttribute('src','/image/temps/'+calID+'.jpg');
         calsList[i].getElementsByClassName('calendar-price-container')[0].getElementsByClassName('fromrange')[0].getElementsByClassName('price')[0].innerHTML= "Rs. " + calMenu[calID].fromprice + " / copy";
         calsList[i].getElementsByClassName('calendar-price-container')[0].getElementsByClassName('fromrange')[0].getElementsByClassName('qty')[0].innerHTML=calMenu[calID].fromqty + "+ copies <br> Single colour printing";
         calsList[i].getElementsByClassName('calendar-price-container')[0].getElementsByClassName('torange')[0].getElementsByClassName('price')[0].innerHTML= "Rs. " + calMenu[calID].toprice + " / copy";
