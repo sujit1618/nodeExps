@@ -13,8 +13,20 @@ b {
 }
 
 @font-face {
-    font-family: 'Helvetica Neue', sans-serif, notodev;
-    src: url(/fonts/notoDev2.ttf);
+    font-family: opt-r;
+    src: url(/fonts/opt-r.ttf);
+}
+@font-face {
+    font-family: opt-b;
+    src: url(/fonts/opt-b.ttf);
+}
+@font-face {
+    font-family: opt-i;
+    src: url(/fonts/opt-i.ttf);
+}
+@font-face {
+    font-family: opt-m;
+    src: url(/fonts/opt-m.ttf);
 }
 
 
@@ -52,6 +64,7 @@ h2 {
 }
 
 h3 {
+    font-family: opt-b;
     font-size: 18px;
     font-weight: 400;
 }
@@ -233,7 +246,7 @@ body {
 
 .calendar-container {
     /* background-color: aqua; */
-    margin: 54px auto 154px auto;
+    margin: 54px auto 36px auto;
     /* padding: 0 98px 0 340px; */
     /* max-width: 900px; */
     /* width: 75vw; */
@@ -291,7 +304,6 @@ h3{
     grid-template-columns: 200px 200px;
     row-gap: 5px;
     column-gap: 15px;
-
 }
 
 .page-option {
@@ -484,11 +496,17 @@ table {
 #due-amount {
     padding: 9px;
     background-color: #fde5ca;
+    text-align: center;
+    font-family: opulent;
+    min-width: 130px;
 }
 
 #total-amount {
     padding: 9px;
     background-color: rgb(235, 235, 235, 0.5);
+    text-align: center;
+    font-family: opulent;
+    min-width: 130px;
 }
 
 #payButton {

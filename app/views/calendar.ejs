@@ -71,7 +71,7 @@
     </div>
 
     <div class="calendar-container">
-        
+
         <div class="cal-images-container">
             <img id="cal-img" src="/image/calendarpngfiles/161.png" alt="">
             <!-- <img src="./image/eg/eg131.jpg" alt=""> -->
@@ -79,6 +79,10 @@
         <div class="cal-details-container">
             <h1 id="calendar-name">161-Smash</h1>
             <h2 id="description">6 Sheets & 12 Sheets | 17.5 inch x 22.5 inch</h2>
+            <hr>
+            <h3 class="no-margin-h3"> About</h3>
+            <p style="font-family: opulent; font-size: 18px;" id="desc2"></p>
+            <hr>
             <h3>Pages options</h3>
             <div class="page-options-container">
 
@@ -248,6 +252,8 @@
         </div>
 
     </div>
+    <hr>
+
     <label for="">Order id: </label>
     <input type="text" name="" id="rzp-text">
     <br>
@@ -266,9 +272,9 @@
         //ORDER CREATION
         let orderId;
         document.getElementById("order-button1").onclick = function (e) {
-            
+
             if (document.getElementById('cal-qty').value >= minQty) {
-                document.getElementById('loader').style.display='block';
+                document.getElementById('loader').style.display = 'block';
                 var url = "/api/calendar/order";
                 var params = {
 
@@ -333,6 +339,7 @@
     <!-- CHECKOUT-2 -->
     <script>
         var myVar;
+
         function myFunctionRzpy() {
             myVar = setTimeout(checkoutAuto, 3000);
         }

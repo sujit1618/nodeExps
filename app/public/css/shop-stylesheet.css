@@ -56,8 +56,15 @@ h3 {
     font-weight: 400;
 }
 
+h4 {
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
 p {
-    font-family: 'Helvetica Neue', sans-serif, notodev, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-family: noto-sans, sans-serif;
     font-weight: 400;
     font-size: 15px;
@@ -351,6 +358,10 @@ body {
     margin-bottom: 9px;
 }
 
+#desc2{
+    margin: 0;
+}
+
 /* .calendar-price-container{ */
     /* display: grid; */
     /* grid-template-columns: auto min 135px; */
@@ -411,7 +422,8 @@ body {
 
 .contact-footer {
     margin: 48px auto 0 auto;
-    background-image: url(./images/sunrise-bg-1.jpg);
+    background-image: url(/image/contact-g.png);
+    /* background-color: #fde4cc; */
     background-position: center;
     background-size: cover;
 }
@@ -425,7 +437,7 @@ body {
 
 .main-grid {
     display: grid;
-    grid-template-columns: auto 150px;
+    grid-template-columns: auto 200px;
     grid-template-rows: auto;
 }
 
@@ -549,3 +561,4 @@ body {
     margin: 0 auto 0 auto;
     text-align: center;
 }
+
