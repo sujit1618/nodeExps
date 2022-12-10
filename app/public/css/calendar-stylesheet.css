@@ -278,7 +278,7 @@ body {
     height: 100%;
     width: 450px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
     /* background-color: antiquewhite; */
     /* background-color: antiquewhite; */
@@ -286,6 +286,7 @@ body {
 }
 
 .cal-images-container img {
+    margin-top: 100px;
     display: block;
     width: 99%;
     margin: auto;
@@ -294,7 +295,8 @@ body {
 }
 
 h3{
-    margin-top: 24px;
+    margin-top: 18px;
+    margin-bottom: 3px;
 }
 
 .page-options-container {
@@ -573,3 +575,11 @@ table {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+.bus-details-input{
+    width: 293px;
+    min-height: 19px;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-family: opulent;
+}

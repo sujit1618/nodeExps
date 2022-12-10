@@ -477,7 +477,7 @@ let menu = {
         "extraRate": 1.4
       }
     }
-  }
+  },
 };
 
 dotenv.config();
@@ -640,7 +640,7 @@ function calAdv() {
   let totalAmount = (Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100).toFixed(2);
   let advanceDue = (0.5 * totalAmount).toFixed(2);
   if (advanceDue < 5000) {
-    advanceDue = 5000;
+    advanceDue = 100;
   }
   backDue = (advanceDue * 100).toFixed(0);
   console.log('============== APP ============');

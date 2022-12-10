@@ -223,7 +223,11 @@
             <div class="quantity-container">
                 <h3 id="min-qty-h3" class="no-margin-h3">Enter quantity (min. 250)</h3>
                 <form class="input-container">
-                    <input type="number" name="" id="cal-qty" value="250" min="250">
+                    <input autofocus type="number" name="" id="cal-qty" value="250" min="250">
+                    <!-- <input type="text" name="bus-name" id="bus-name"> -->
+                    <!-- <input type="text" name="bus-gst" id="bus-gst"> -->
+                    <!-- <input type="text" name="bus-add" id="bus-add"> -->
+                    <!-- <input type="text" name="bus-deladd" id="bus-deladd"> -->
                     <!-- <input id="getQuote" class="button-1" type="submit" value="get quote"> -->
                 </form>
                 <div class="error-message" id="qty-error">
@@ -231,9 +235,10 @@
                 </div>
             </div>
             <div class="pricing-container">
+                <h3 class="no-margin-h3">Quoted Amount (Delivery charges extra)</h3>
                 <div class="total-container">
                     <div class="label-container">
-                        <h3 class="no-margin-h3">Quoted Amount</h3>
+
                         <div id="total-for-qty" class="for-qty"> including GST, <br> for 250 copies</div>
                     </div>
                     <h3 class="no-margin-h3" id="total-amount">Rs. 4400000</h3>
@@ -244,9 +249,25 @@
                         <div class="for-qty">(for booking order)</div>
                     </div>
                     <h3 class="no-margin-h3" id="due-amount">Rs. 2200000</h3>
-
                 </div>
+               
+                <h3>Business Name</h3>
+                <input class="bus-details-input" type="text" name="" id="bus-name">
+
+                <h3>Contact Number</h3>
+                <input class="bus-details-input" type="text" name="" id="bus-contact">
+
+                <h3>Business Address</h3>
+                <textarea class="bus-details-input" id="bus-add" name="bus-add" rows="3" cols="34"></textarea>
+                
+                <h3>Delivery address (optional)</h3>
+                <textarea class="bus-details-input" id="bus-deladd" name="bus-deladd" rows="3" cols="34"></textarea>
+
+                <h3>GSTIN</h3>
+                <input class="bus-details-input" type="text" name="" id="bus-gst">
+
                 <button id="order-button1" class="button-1">Book Order ></button>
+                
 
             </div>
         </div>
@@ -352,7 +373,7 @@
                 "name": calMenu[calID].name + " | Prabhat Calendars",
                 // "Advance for " + orderQty + " qty of " + inksSel + " colour printing on "+ calMenu[calID].name + " calendar (" + pageOptionsSel + " sheets type" 
                 // "description": "Advance for 450qty of 2 colour 131-Serene Calendars",
-                "description": "Advance for " + orderQty + " qty of " + inksSel + " colour printing on " +
+                "description": document.getElementById('bus-name').value + "- Advance for " + orderQty + " qty of " + inksSel + " colour printing on " +
                     calMenu[calID].name + " calendar (" + pageOptionsSel + " sheets type)",
                 "order_id": orderId,
                 "handler": function (response) {
@@ -360,6 +381,15 @@
                     document.getElementById('order-id').value = response.razorpay_order_id;
                     document.getElementById('order-sig').value = response.razorpay_signature;
                 },
+                "notes": {
+                    "Business Name": document.getElementById('bus-name').value,
+                    "GSTIN": document.getElementById('bus-gst').value,
+                    "Business Address": document.getElementById('bus-add').value,
+                    "Contact Details": document.getElementById('bus-contact').value,
+                    "Delivery Address": document.getElementById('bus-deladd').value,
+                },
+                "callback_url":"/shop",
+                "image": "/image/United-flower.png",
                 "theme": {
                     "color": "#0EB9F2"
                 }
