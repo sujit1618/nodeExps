@@ -631,7 +631,7 @@ function calAdv() {
     qtyChoice = 1000;
   }
 
-  
+
 
   let amount = qty * (menu[calNum][sheetsChoice][qtyChoice].baseRate + ((inksChoice - 1) * menu[calNum][sheetsChoice][qtyChoice].extraRate));
   let roundAmount = Math.round((amount + Number.EPSILON) * 100) / 100;
@@ -640,7 +640,7 @@ function calAdv() {
   let totalAmount = (Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100).toFixed(2);
   let advanceDue = (0.5 * totalAmount).toFixed(2);
   if (advanceDue < 5000) {
-    advanceDue = 100;
+    advanceDue = 1;
   }
   backDue = (advanceDue * 100).toFixed(0);
   console.log('============== APP ============');
