@@ -250,7 +250,7 @@
                     </div>
                     <h3 class="no-margin-h3" id="due-amount">Rs. 2200000</h3>
                 </div>
-               
+
                 <h3>Business Name</h3>
                 <input class="bus-details-input" type="text" name="" id="bus-name">
 
@@ -259,7 +259,7 @@
 
                 <h3>Business Address</h3>
                 <textarea class="bus-details-input" id="bus-add" name="bus-add" rows="3" cols="34"></textarea>
-                
+
                 <h3>Delivery address (optional)</h3>
                 <textarea class="bus-details-input" id="bus-deladd" name="bus-deladd" rows="3" cols="34"></textarea>
 
@@ -267,13 +267,61 @@
                 <input class="bus-details-input" type="text" name="" id="bus-gst">
 
                 <button id="order-button1" class="button-1">Book Order ></button>
-                
+
 
             </div>
         </div>
 
     </div>
-    
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="/image/modal-icon.jpg" alt="" id="modal-icon">
+            </div>
+            <div class="modal-grid-container">
+                <div class="grid-form-field">
+                    <h3 class="no-margin-h3">Business Name</h3>
+                    <input class="bus-details-input" type="text" name="" id="bus-name">
+                </div>
+                <div class="grid-form-field">
+                    <h3 class="no-margin-h3">Contact Number</h3>
+                    <input class="bus-details-input" type="text" name="" id="bus-contact">
+                </div>
+                <div class="grid-form-field">
+                    <h3 class="no-margin-h3">Email</h3>
+                    <input class="bus-details-input" type="text" name="" id="bus-email">
+                </div>
+                <div class="grid-form-field">
+                    <h3 class="no-margin-h3">GSTIN</h3>
+                    <input class="bus-details-input" type="text" name="" id="bus-gst">
+                </div>
+
+                <div class="grid-form-field" id="biz-address-field">
+                    <h3 class="no-margin-h3">Business Address</h3>
+                    <textarea class="bus-details-input" id="bus-add" name="bus-add" rows="3" cols="34"></textarea>
+                </div>
+                <div class="grid-form-field" id="del-address-field">
+                    <h3 class="no-margin-h3">Delivery address</h3>
+                    <textarea class="bus-details-input" id="bus-deladd" name="bus-deladd" rows="3" cols="34"></textarea>
+                </div>
+                <div class="grid-form-field" id="brand-url">
+                    <h3 class="no-margin-h3">Branding Artwork URL (Google Drive/ WeTransfer link) </h3>
+                    <input class="bus-details-input" type="text" name="" id="art-url">
+                </div>
+            </div>
+            <div class="modal-button-container">
+                <button class="button-2">Back</button>
+                <button class="button-1">Pay Advance</button>
+            </div>
+
+
+        </div>
+
+    </div>
+
 
     <!-- ORDER CREATION -->
     <script>
@@ -301,7 +349,7 @@
                 xmlHttp.onreadystatechange = function (res) {
                     if (xmlHttp.readyState === 4) {
                         res = JSON.parse(xmlHttp.responseText);
-                        
+
                         orderId = res.sub.id
                         myFunctionRzpy();
                     }
@@ -320,6 +368,7 @@
         //CHECKOUTT INITIATE
         document.getElementById("rzp-button1").onclick = function (e) {
 
+
             var options = {
                 "key": "<%= key %>",
                 "currency": "INR",
@@ -332,8 +381,8 @@
                     document.getElementById('order-id').value = response.razorpay_order_id;
                     document.getElementById('order-sig').value = response.razorpay_signature;
                 },
-                "callback_url":"https://prabhatprinting.com/shop/",
-                "callback_method":"get",
+                "callback_url": "https://prabhatprinting.com/shop/",
+                "callback_method": "get",
                 "theme": {
                     "color": "#0EB9F2"
                 }
@@ -353,6 +402,8 @@
 
         function myFunctionRzpy() {
             myVar = setTimeout(checkoutAuto, 3000);
+            var currentTime = new Date();
+            console.log(currentTime);
         }
 
         function checkoutAuto() {
@@ -361,7 +412,8 @@
                 "key": "<%= key %>",
                 "currency": "INR",
                 "name": calMenu[calID].name + " | Prabhat Calendars",
-                "description": document.getElementById('bus-name').value + "- Advance for " + orderQty + " qty of " + inksSel + " colour printing on " +
+                "description": document.getElementById('bus-name').value + "- Advance for " + orderQty +
+                    " qty of " + inksSel + " colour printing on " +
                     calMenu[calID].name + " calendar (" + pageOptionsSel + " sheets type)",
                 "order_id": orderId,
                 "handler": function (response) {
@@ -380,8 +432,8 @@
                     "Contact Details": document.getElementById('bus-contact').value,
                     "Delivery Address": document.getElementById('bus-deladd').value,
                 },
-                "callback_url":"https://prabhatprinting.com/shop/",
-                "callback_method":"get",
+                "callback_url": "https://prabhatprinting.com/shop/",
+                "callback_method": "get",
                 "image": "/image/United-flower.png",
                 "theme": {
                     "color": "#0EB9F2"
@@ -394,7 +446,6 @@
 
     <!-- VERIFICATION -->
     <script>
-        
         // VERIFICATION 2 ----- >
         function verify2(e) {
             var url = '/api/calendar/verify';

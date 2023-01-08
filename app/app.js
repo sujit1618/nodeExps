@@ -574,7 +574,7 @@ app.post("/api/calendar/order", (req, res) => {
   params = {
     amount: backDue,
     currency: "INR",
-    receipt: "wthcoding001",
+    receipt: "345678",
     payment_capture: '1',
   };
   instance.orders

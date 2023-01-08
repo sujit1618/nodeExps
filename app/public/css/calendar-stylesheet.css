@@ -176,7 +176,6 @@ body {
     font-family: 'Helvetica Neue', sans-serif, notodev;
     outline: none;
     background-color: #161a1f;
-    background-color: #32213A;
     border: none;
     font-size: 15px;
     text-transform: capitalize;
@@ -193,6 +192,27 @@ body {
     background: -webkit-linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%);
     background: linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f4ae5e",endColorstr="#e0850f",GradientType=1);
+
+    box-shadow: 0px 2px rgba(167, 167, 167, 0.54);
+}
+.button-2 {
+    display: block;
+    font-family: 'Helvetica Neue', sans-serif, notodev;
+    outline: none;
+    background-color: #161a1f;
+    background-color: #32213A;
+    border: none;
+    font-size: 15px;
+    text-transform: capitalize;
+    color: white;
+    font-weight: 600;
+    padding: 15px 36px 15px 36px;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 240ms;
+    width: fit-content;
+    cursor: pointer;
+    border-radius: 5px;
+
+    background: rgb(79, 79, 79);
 
     box-shadow: 0px 2px rgba(167, 167, 167, 0.54);
 }
@@ -577,9 +597,86 @@ table {
   }
 
 .bus-details-input{
-    width: 293px;
     min-height: 19px;
     padding: 8px 12px;
     font-size: 16px;
     font-family: opulent;
+    width: 194px;
+}
+
+textarea{
+    resize: none;
+}
+/* The Modal (background) */
+.modal {
+  /* display: none; */
+  display: block; 
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+  backdrop-filter: blur(3px);
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* 15% from the top and centered */
+  padding: 10px 36px 36px 36px;
+  border: 1px solid #888;
+  width: fit-content; /* Could be more or less, depending on screen size */
+}
+
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#modal-icon{
+    height: 80px;
+}
+
+.modal-grid-container{
+    margin: 18px 0 32px 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto;
+    row-gap: 12px;
+    column-gap: 12px;
+}
+
+
+#biz-address-field{
+    grid-column: 1 / span 2;
+}
+
+#biz-address-field textarea{
+    width: 436px;
+}
+
+#del-address-field{
+    grid-column: 3 / span 2;
+}
+
+#del-address-field textarea{
+    width: 436px;
+}
+
+#brand-url{
+    grid-column: 1 / span 4;
+}
+
+#art-url{
+    width: 910px;
+}
+
+.modal-button-container{
+    display: flex;
+    justify-content: space-between;
 }
