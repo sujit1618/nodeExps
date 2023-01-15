@@ -74,7 +74,7 @@
         <a href="https://merchant.razorpay.com/policy/KkWhBVPTPSbMWL/shipping">Shipping policy</a>
     </div>
 
-    <div class="calendar-container">
+    <div class="calendar-container" id="calendar-marker">
 
         <div class="cal-images-container">
             <img id="cal-img" src="/image/calendarpngfiles/161.png" alt="">
@@ -84,10 +84,13 @@
             <h1 id="calendar-name">161-Smash</h1>
             <h2 id="description">6 Sheets & 12 Sheets | 17.5 inch x 22.5 inch</h2>
             <hr>
-            <h3 class="no-margin-h3"> About</h3>
-            <p style="font-family: opulent; font-size: 18px;" id="desc2"></p>
-            <hr>
-            <h3>Pages options</h3>
+            
+            <!-- <h3 class="no-margin-h3">Customization</h3> -->
+            <!-- <p style="font-family: opulent; font-size: 18px;" id="">Please create your branding elements with above -->
+                <!-- mentioned dimensions in a PDF / Illustrator / CorelDraw file and upload it to Google Drive or -->
+                <!-- WeTransfer. Alternatively, please email the files to marketing@unitedprinters.in with your order</p> -->
+            <!-- <hr> -->
+            <h3 class="no-margin-h3">Pages options</h3>
             <div class="page-options-container">
 
                 <div class="page-option" id="sheets-12" onclick="pageSel(12)">
@@ -121,6 +124,16 @@
                     <div class="label">Three or more colours <br> (Four colour printing)</div>
                 </div>
             </div>
+            <br>
+            <hr>
+            
+            <h3 class="h3"> About</h3>
+            <p style="font-family: opulent; font-size: 18px;" id="desc2"></p>
+            <br>
+            <p style="font-family: opulent; font-size: 18px;">Please create your branding elements with above
+                mentioned blank space sizes in a PDF / Illustrator / CorelDraw file and upload it to Google Drive or
+                WeTransfer. Alternatively, please email the files to marketing@unitedprinters.in with your order</p>
+            <br><hr>
             <div class="rate-table-container">
                 <h3 id="rate-table-h3">Single Sided (6 Sheets) calendar bulk prices</h3>
                 <table id="6-sheets-table">
@@ -258,6 +271,7 @@
                 <button id="open-modal" class="button-1">Book Order ></button>
 
             </div>
+            
         </div>
 
     </div>
@@ -313,10 +327,10 @@
 
     <!-- ORDER CREATION -->
     <script>
-        document.getElementById('open-modal').onclick = function openModal(){
+        document.getElementById('open-modal').onclick = function openModal() {
             document.getElementById('myModal').style.display = "block";
         }
-        document.getElementById('close-modal').onclick = function closeModal(){
+        document.getElementById('close-modal').onclick = function closeModal() {
             document.getElementById('myModal').style.display = "none";
         }
         //ORDER CREATION
@@ -329,26 +343,26 @@
             var minute = JSON.stringify(currentTime.getMinutes());
             var seconds = JSON.stringify(currentTime.getSeconds());
             var day = JSON.stringify(currentTime.getDate());
-            var month = JSON.stringify(currentTime.getMonth()+1);
+            var month = JSON.stringify(currentTime.getMonth() + 1);
             var year = JSON.stringify(currentTime.getFullYear());
 
-            if(seconds.length<2){
-                seconds = "0"+seconds;
+            if (seconds.length < 2) {
+                seconds = "0" + seconds;
             }
-            if(day.length<2){
-                day = "0"+day;
+            if (day.length < 2) {
+                day = "0" + day;
             }
-            if(month.length<2){
-                month = "0"+month;
+            if (month.length < 2) {
+                month = "0" + month;
             }
-            if(minute.length<2){
-                minute = "0"+minute;
+            if (minute.length < 2) {
+                minute = "0" + minute;
             }
-            if(hour.length<2){
-                hour = "0"+hour;
+            if (hour.length < 2) {
+                hour = "0" + hour;
             }
-            var receiptTime = hour+minute+seconds+"-"+day+month+year[2]+year[3];
-            
+            var receiptTime = hour + minute + seconds + "-" + day + month + year[2] + year[3];
+
 
             if (document.getElementById('cal-qty').value >= minQty) {
                 document.getElementById('loader').style.display = 'block';
@@ -423,7 +437,7 @@
 
         function myFunctionRzpy() {
             myVar = setTimeout(checkoutAuto, 3000);
-            
+
         }
 
         function checkoutAuto() {
