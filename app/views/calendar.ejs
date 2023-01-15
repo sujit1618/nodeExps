@@ -64,10 +64,14 @@
         </div>
     </div>
     <div class="nav-1">
-        <a href="/shop/">order online</a>
+        <a href="/shop">order online</a>
         <a href="">Help with customizing calendar</a>
         <a href="">Contact us</a>
-        <a href="">Go to United Multicolour printers ></a>
+        <a href="https://unitedprinters.in/">Go to united multicolour printers ></a>
+        <a href="https://merchant.razorpay.com/policy/KkWhBVPTPSbMWL/privacy">Privacy Policy</a>
+        <a href="https://merchant.razorpay.com/policy/KkWhBVPTPSbMWL/terms">Terms & conditions</a>
+        <a href="https://merchant.razorpay.com/policy/KkWhBVPTPSbMWL/refund">Refund Policy</a>
+        <a href="https://merchant.razorpay.com/policy/KkWhBVPTPSbMWL/shipping">Shipping policy</a>
     </div>
 
     <div class="calendar-container">
@@ -251,23 +255,7 @@
                     <h3 class="no-margin-h3" id="due-amount">Rs. 2200000</h3>
                 </div>
 
-                <h3>Business Name</h3>
-                <input class="bus-details-input" type="text" name="" id="bus-name">
-
-                <h3>Contact Number</h3>
-                <input class="bus-details-input" type="text" name="" id="bus-contact">
-
-                <h3>Business Address</h3>
-                <textarea class="bus-details-input" id="bus-add" name="bus-add" rows="3" cols="34"></textarea>
-
-                <h3>Delivery address (optional)</h3>
-                <textarea class="bus-details-input" id="bus-deladd" name="bus-deladd" rows="3" cols="34"></textarea>
-
-                <h3>GSTIN</h3>
-                <input class="bus-details-input" type="text" name="" id="bus-gst">
-
-                <button id="order-button1" class="button-1">Book Order ></button>
-
+                <button id="open-modal" class="button-1">Book Order ></button>
 
             </div>
         </div>
@@ -313,8 +301,8 @@
                 </div>
             </div>
             <div class="modal-button-container">
-                <button class="button-2">Back</button>
-                <button class="button-1">Pay Advance</button>
+                <button id="close-modal" class="button-2">Back</button>
+                <button id="order-button1" class="button-1">Pay Advance</button>
             </div>
 
 
@@ -325,9 +313,42 @@
 
     <!-- ORDER CREATION -->
     <script>
+        document.getElementById('open-modal').onclick = function openModal(){
+            document.getElementById('myModal').style.display = "block";
+        }
+        document.getElementById('close-modal').onclick = function closeModal(){
+            document.getElementById('myModal').style.display = "none";
+        }
         //ORDER CREATION
         let orderId;
         document.getElementById("order-button1").onclick = function (e) {
+            var currentTime = new Date();
+            console.log(currentTime.getHours());
+            var hour = JSON.stringify(currentTime.getHours());
+            console.log(hour);
+            var minute = JSON.stringify(currentTime.getMinutes());
+            var seconds = JSON.stringify(currentTime.getSeconds());
+            var day = JSON.stringify(currentTime.getDate());
+            var month = JSON.stringify(currentTime.getMonth()+1);
+            var year = JSON.stringify(currentTime.getFullYear());
+
+            if(seconds.length<2){
+                seconds = "0"+seconds;
+            }
+            if(day.length<2){
+                day = "0"+day;
+            }
+            if(month.length<2){
+                month = "0"+month;
+            }
+            if(minute.length<2){
+                minute = "0"+minute;
+            }
+            if(hour.length<2){
+                hour = "0"+hour;
+            }
+            var receiptTime = hour+minute+seconds+"-"+day+month+year[2]+year[3];
+            
 
             if (document.getElementById('cal-qty').value >= minQty) {
                 document.getElementById('loader').style.display = 'block';
@@ -343,7 +364,7 @@
                     pagesOption: pageOptionsSel,
                     cal: calID,
                     inks: inksSel,
-                    receipt: "test-cal-1"
+                    receipt: receiptTime
                 };
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.onreadystatechange = function (res) {
@@ -402,8 +423,7 @@
 
         function myFunctionRzpy() {
             myVar = setTimeout(checkoutAuto, 3000);
-            var currentTime = new Date();
-            console.log(currentTime);
+            
         }
 
         function checkoutAuto() {
@@ -427,6 +447,7 @@
                 },
                 "notes": {
                     "Business Name": document.getElementById('bus-name').value,
+                    "Email Address": document.getElementById('bus-email').value,
                     "GSTIN": document.getElementById('bus-gst').value,
                     "Business Address": document.getElementById('bus-add').value,
                     "Contact Details": document.getElementById('bus-contact').value,

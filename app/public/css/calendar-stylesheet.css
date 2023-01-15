@@ -266,7 +266,7 @@ body {
 
 .calendar-container {
     /* background-color: aqua; */
-    margin: 54px auto 36px auto;
+    margin: 54px auto 100px auto;
     /* padding: 0 98px 0 340px; */
     /* max-width: 900px; */
     /* width: 75vw; */
@@ -565,7 +565,7 @@ table {
     margin-top: 0px;
 }
 
-#order-button1{
+#open-modal{
     margin-top: 28px;
 }
 
@@ -609,8 +609,8 @@ textarea{
 }
 /* The Modal (background) */
 .modal {
-  /* display: none; */
-  display: block; 
+  display: none;
+  /* display: block;  */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
