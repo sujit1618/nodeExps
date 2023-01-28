@@ -485,6 +485,8 @@ let menu = {
 let pageOptionsSel = 6;
 let inksSel = 1;
 let calID;
+let totalAmount;
+let advanceDue;
 
 let unHover = "background-color: #f0f0f0;";
 let hoverStyle = " background: rgb(214,248,255); background: -moz-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); background: -webkit-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); background: linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d6f8ff',endColorstr='#aee8f5',GradientType=1);";
@@ -698,8 +700,8 @@ function calAdv(q){
     let roundAmount = Math.round((amount + Number.EPSILON) * 100) / 100;
     let gst = roundAmount * 0.18;
     roundGst = Math.round((gst + Number.EPSILON) * 100) / 100;
-    let totalAmount = (Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100).toFixed(2);
-    let advanceDue = (0.5 * totalAmount).toFixed(2);
+    totalAmount = (Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100).toFixed(2);
+    advanceDue = (0.5 * totalAmount).toFixed(2);
     if(advanceDue < 5000){
         advanceDue = 5000;
     }
@@ -714,3 +716,48 @@ function calAdv(q){
     console.log("Advance: " + advanceDue);
 }
 
+function successmodalload() {
+    let balance = totalAmount - advanceDue;
+    document.getElementById('successModal').style.display = 'block';
+    document.getElementById('success-cusName').innerHTML = document.getElementById('bus-name').value;
+    document.getElementById('success-cusEmail').innerHTML = document.getElementById('bus-email').value;
+    document.getElementById('success-cusContact').innerHTML = document.getElementById('bus-contact').value;
+    
+    document.getElementById('success-receipt').innerHTML = receiptTime;
+    document.getElementById('success-date').innerHTML = new Date();
+
+    document.getElementById('success-total').innerHTML = "Rs. " + totalAmount;
+    document.getElementById('success-advance').innerHTML = "Rs. " + advanceDue;
+    document.getElementById('success-calname').innerHTML = calMenu[calID].name;
+    document.getElementById('success-variant').innerHTML = pageOptionsSel + " sheets";
+    document.getElementById('success-qty').innerHTML = document.getElementById('cal-qty').value;
+    document.getElementById('success-balance').innerHTML = "Rs. " + balance + " + delivery charges";
+    if (inksSel == 3) {
+        document.getElementById('success-colours').innerHTML = inksSel + "+ colours";
+    }
+    else if(inksSel == 2){
+        document.getElementById('success-colours').innerHTML = inksSel + " colours";
+    }
+    else if(inksSel == 1){
+        document.getElementById('success-colours').innerHTML = inksSel + " colour";
+    }
+    
+    document.getElementById('myModal').style.display = "none";
+}
+
+function closeSuccessModal() {
+    printBooking();
+    document.getElementById('successModal').style.display = 'none';
+}
+
+function printBooking() {
+    window.print();
+    // var element = document.getElementById("successModal");
+    // var opt = {
+        // filename:     'Booking Confirmation - Prabhat Calendars.pdf',
+        // image:        { type: 'jpeg', quality: 0.98 },
+        // html2canvas:  { scale: 2 },
+        // jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    //   };
+    //   html2pdf().set(opt).from(element).save();
+}

@@ -38,6 +38,7 @@
             });
         });
     </script>
+    
     <!-- End of SMOOTH SCROLL -->
 
 
@@ -84,11 +85,11 @@
             <h1 id="calendar-name">161-Smash</h1>
             <h2 id="description">6 Sheets & 12 Sheets | 17.5 inch x 22.5 inch</h2>
             <hr>
-            
+
             <!-- <h3 class="no-margin-h3">Customization</h3> -->
             <!-- <p style="font-family: opulent; font-size: 18px;" id="">Please create your branding elements with above -->
-                <!-- mentioned dimensions in a PDF / Illustrator / CorelDraw file and upload it to Google Drive or -->
-                <!-- WeTransfer. Alternatively, please email the files to marketing@unitedprinters.in with your order</p> -->
+            <!-- mentioned dimensions in a PDF / Illustrator / CorelDraw file and upload it to Google Drive or -->
+            <!-- WeTransfer. Alternatively, please email the files to marketing@unitedprinters.in with your order</p> -->
             <!-- <hr> -->
             <h3 class="no-margin-h3">Pages options</h3>
             <div class="page-options-container">
@@ -126,14 +127,16 @@
             </div>
             <br>
             <hr>
-            
+
             <h3 class="h3"> About</h3>
             <p style="font-family: opulent; font-size: 18px;" id="desc2"></p>
             <br>
-            <p style="font-family: opulent; font-size: 18px;">Please create your branding elements with above
+            <p style="font-family: opulent; font-size: 15px;">Please create your branding elements with above
                 mentioned blank space sizes in a PDF / Illustrator / CorelDraw file and upload it to Google Drive or
-                WeTransfer. Alternatively, please email the files to marketing@unitedprinters.in with your order</p>
-            <br><hr>
+                WeTransfer and share the link with us during order booking. Alternatively, please email the files to
+                marketing@unitedprinters.in with your order details</p>
+            <br>
+            <hr>
             <div class="rate-table-container">
                 <h3 id="rate-table-h3">Single Sided (6 Sheets) calendar bulk prices</h3>
                 <table id="6-sheets-table">
@@ -271,7 +274,7 @@
                 <button id="open-modal" class="button-1">Book Order ></button>
 
             </div>
-            
+
         </div>
 
     </div>
@@ -324,11 +327,89 @@
 
     </div>
 
+    <div id="successModal" class="modal2">
+        <div id="successModal-content" class="modal-content-2">
+            
+            <div class="modal-header">
+                <img src="/image/modal-icon.jpg" alt="" id="modal-icon">
+            </div>
+            <hr>
+            <div class="success-message">
+                <img class="success-icon" src="image/success-icon.svg" alt="">
+                <h1>Booking successful</h1>
+            </div>
+            <hr>
+            <p>Thank you for your order. Our representative will contact you shortly on the email address and contact number you provided. <br><br> In case of any questions, please contact us at 020 24453862 or email us at ceo@unitedprinters.in</p>
+            <hr>
+            <div class="success-modal-grid">
+                <div class="order-detail">
+                    <h3 class="no-margin-h3">Customer Name</h3>
+                    <p id="success-cusName">Customer's name</p>
+                </div>
+                <div class="order-detail">
+                    <h3 class="no-margin-h3">Customer Email</h3>
+                    <p id="success-cusEmail">customer@email.com</p>
+                </div>
+                <div class="order-detail">
+                    <h3 class="no-margin-h3">Customer Phone</h3>
+                    <p id="success-cusContact">+919999999999</p>
+                </div>
+            </div>
+            <hr>
+            <div class="success-modal-grid">
+                <div class="order-detail">
+                    <h3 class="no-margin-h3">Order ID</h3>
+                    <p id="success-receipt">202020-202020</p>
+                </div>
+                <div class="order-detail full-row">
+                    <h3 class="no-margin-h3">Date</h3>
+                    <p id="success-date"></p>
+                </div>
+                <div class="order-detail">
+                    <h3 class="no-margin-h3">Total Quote</h3>
+                    <p id="success-total">Rs. 4567898</p>
+                </div>
+                <div class="order-detail">
+                    <h3 class="no-margin-h3">Advance Paid</h3>
+                    <p id="success-advance">Rs. 45678</p>
+                </div>
+                <div class="order-detail">
+                    <h3 class="no-margin-h3">Calendar Name</h3>
+                    <p id="success-calname">13-Serene</p>
+                </div>
+                <div class="order-detail">
+                    <h3 class="no-margin-h3">Variant</h3>
+                    <p id="success-variant">12 Sheets</p>
+                </div>
+                <div class="order-detail">
+                    <h3 class="no-margin-h3">Quantity</h3>
+                    <p id="success-qty">50000</p>
+                </div>
+                <div class="order-detail">
+                    <h3 class="no-margin-h3">Printing</h3>
+                    <p id="success-colours">3+ Colours</p>
+                </div>
+                <div class="order-detail full-row" id="due-balance">
+                    <h3 class="no-margin-h3">Balance due before delivery</h3>
+                    <p id="success-balance">Rs. 3637398 + shipping charges</p>
+                </div>
+            </div>
+            <hr>
+            <div class="success-button-container">
+                <!-- <button class="button-1" onclick="closeSuccessModal()">Close</button> -->
+                <button class="button-1" onclick="printBooking()">Print Booking Confirmation</button>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- ORDER CREATION -->
     <script>
+        var receiptTime;
         document.getElementById('open-modal').onclick = function openModal() {
             document.getElementById('myModal').style.display = "block";
+            // successmodalload();
         }
         document.getElementById('close-modal').onclick = function closeModal() {
             document.getElementById('myModal').style.display = "none";
@@ -361,7 +442,8 @@
             if (hour.length < 2) {
                 hour = "0" + hour;
             }
-            var receiptTime = hour + minute + seconds + "-" + day + month + year[2] + year[3];
+            receiptTime = hour + minute + seconds + "-" + day + month + year[2] + year[3];
+            console.log(receiptTime);
 
 
             if (document.getElementById('cal-qty').value >= minQty) {
@@ -460,12 +542,14 @@
                     verify2();
                 },
                 "notes": {
+                    "Order ID": receiptTime,
                     "Business Name": document.getElementById('bus-name').value,
                     "Email Address": document.getElementById('bus-email').value,
                     "GSTIN": document.getElementById('bus-gst').value,
                     "Business Address": document.getElementById('bus-add').value,
                     "Contact Details": document.getElementById('bus-contact').value,
                     "Delivery Address": document.getElementById('bus-deladd').value,
+                    "Branding Artwork URL":document.getElementById('art-url').value
                 },
                 "callback_url": "https://prabhatprinting.com/shop/",
                 "callback_method": "get",
@@ -493,7 +577,7 @@
             xmlHttp.onreadystatechange = function (res) {
                 if (xmlHttp.readyState === 4) {
                     console.log('keys verified');
-                    alert(xmlHttp.responseText);
+                    successmodalload();
                 }
             }
             xmlHttp.open("POST", url, true); // false for synchronous request

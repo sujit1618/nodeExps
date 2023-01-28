@@ -16,14 +16,17 @@ b {
     font-family: opt-r;
     src: url(/fonts/opt-r.ttf);
 }
+
 @font-face {
     font-family: opt-b;
     src: url(/fonts/opt-b.ttf);
 }
+
 @font-face {
     font-family: opt-i;
     src: url(/fonts/opt-i.ttf);
 }
+
 @font-face {
     font-family: opt-m;
     src: url(/fonts/opt-m.ttf);
@@ -187,14 +190,15 @@ body {
     cursor: pointer;
     border-radius: 5px;
 
-    background: rgb(244,174,94);
-    background: -moz-linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%);
-    background: -webkit-linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%);
-    background: linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f4ae5e",endColorstr="#e0850f",GradientType=1);
+    background: rgb(244, 174, 94);
+    background: -moz-linear-gradient(180deg, rgba(244, 174, 94, 1) 0%, rgba(230, 147, 11, 1) 50%, rgba(224, 133, 15, 1) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(244, 174, 94, 1) 0%, rgba(230, 147, 11, 1) 50%, rgba(224, 133, 15, 1) 100%);
+    background: linear-gradient(180deg, rgba(244, 174, 94, 1) 0%, rgba(230, 147, 11, 1) 50%, rgba(224, 133, 15, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f4ae5e", endColorstr="#e0850f", GradientType=1);
 
     box-shadow: 0px 2px rgba(167, 167, 167, 0.54);
 }
+
 .button-2 {
     display: block;
     font-family: 'Helvetica Neue', sans-serif, notodev;
@@ -250,7 +254,7 @@ body {
 
 .nav-1 {
     display: flex;
-    padding: 18px 180px;
+    padding: 18px 6%;
     background-color: #32213A;
     color: #fff;
     justify-content: space-between;
@@ -279,7 +283,7 @@ body {
     row-gap: 18px;
 }
 
-.calendar-container h1{
+.calendar-container h1 {
     grid-column: 1 / span 2;
     grid-row: 1 / span 1;
 }
@@ -314,7 +318,7 @@ body {
     /* padding-top: 10px; */
 }
 
-h3{
+h3 {
     margin-top: 18px;
     margin-bottom: 3px;
 }
@@ -343,11 +347,11 @@ h3{
 .page-option:hover {
     background-color: aliceblue;
 
-    background: rgb(214,248,255);
-    background: -moz-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%);
-    background: -webkit-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%);
-    background: linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d6f8ff",endColorstr="#aee8f5",GradientType=1);
+    background: rgb(214, 248, 255);
+    background: -moz-linear-gradient(180deg, rgba(214, 248, 255, 0.7) 0%, rgba(208, 243, 250, 0.7) 60%, rgba(174, 232, 245, 0.7) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(214, 248, 255, 0.7) 0%, rgba(208, 243, 250, 0.7) 60%, rgba(174, 232, 245, 0.7) 100%);
+    background: linear-gradient(180deg, rgba(214, 248, 255, 0.7) 0%, rgba(208, 243, 250, 0.7) 60%, rgba(174, 232, 245, 0.7) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d6f8ff", endColorstr="#aee8f5", GradientType=1);
 }
 
 
@@ -422,14 +426,14 @@ h3{
 .inks-option:hover {
     background-color: aliceblue;
 
-    background: rgb(214,248,255);
-background: -moz-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%);
-background: -webkit-linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%);
-background: linear-gradient(180deg, rgba(214,248,255,0.7) 0%, rgba(208,243,250,0.7) 60%, rgba(174,232,245,0.7) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d6f8ff",endColorstr="#aee8f5",GradientType=1);
+    background: rgb(214, 248, 255);
+    background: -moz-linear-gradient(180deg, rgba(214, 248, 255, 0.7) 0%, rgba(208, 243, 250, 0.7) 60%, rgba(174, 232, 245, 0.7) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(214, 248, 255, 0.7) 0%, rgba(208, 243, 250, 0.7) 60%, rgba(174, 232, 245, 0.7) 100%);
+    background: linear-gradient(180deg, rgba(214, 248, 255, 0.7) 0%, rgba(208, 243, 250, 0.7) 60%, rgba(174, 232, 245, 0.7) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d6f8ff", endColorstr="#aee8f5", GradientType=1);
 }
 
-.rate-table-container{
+.rate-table-container {
     margin-top: 18px;
     font-size: 15px;
 }
@@ -439,19 +443,20 @@ table {
     margin-top: 8px;
     border-collapse: collapse;
     width: 100%;
-  }
+}
 
-  td, th {
+td,
+th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-  }
-  
-  /* tr:nth-child(even) { */
-    /* background-color: #dddddd; */
-  /* } */
+}
 
-.payments-container{
+/* tr:nth-child(even) { */
+/* background-color: #dddddd; */
+/* } */
+
+.payments-container {
     margin: 22px auto 0 auto;
     grid-column: 3 / span 1;
     grid-row: 2 / span 1;
@@ -460,6 +465,7 @@ table {
     height: fit-content;
     border-radius: 7px;
 }
+
 .pricing-container {
     margin-top: 24px;
 
@@ -534,11 +540,11 @@ table {
 #payButton {
     /* background-color: #ffd29e; */
 
-    background: rgb(244,174,94);
-    background: -moz-linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%);
-    background: -webkit-linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%);
-    background: linear-gradient(180deg, rgba(244,174,94,1) 0%, rgba(230,147,11,1) 50%, rgba(224,133,15,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f4ae5e",endColorstr="#e0850f",GradientType=1);
+    background: rgb(244, 174, 94);
+    background: -moz-linear-gradient(180deg, rgba(244, 174, 94, 1) 0%, rgba(230, 147, 11, 1) 50%, rgba(224, 133, 15, 1) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(244, 174, 94, 1) 0%, rgba(230, 147, 11, 1) 50%, rgba(224, 133, 15, 1) 100%);
+    background: linear-gradient(180deg, rgba(244, 174, 94, 1) 0%, rgba(230, 147, 11, 1) 50%, rgba(224, 133, 15, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f4ae5e", endColorstr="#e0850f", GradientType=1);
 
     color: rgb(255, 255, 255);
     text-transform: capitalize;
@@ -548,7 +554,7 @@ table {
     width: 256px;
 }
 
-.error-message{
+.error-message {
     font-family: opulent;
     margin-top: 5px;
     font-size: 13px;
@@ -561,11 +567,11 @@ table {
     transition: 300ms ease;
 }
 
-.no-margin-h3{
+.no-margin-h3 {
     margin-top: 0px;
 }
 
-#open-modal{
+#open-modal {
     margin-top: 28px;
 }
 
@@ -584,19 +590,29 @@ table {
     animation: spin 1s linear infinite;
     display: none;
     box-shadow: 0px 0px 6px #8484847c;
-  }
-  
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+}
 
-.bus-details-input{
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.bus-details-input {
     min-height: 19px;
     padding: 8px 12px;
     font-size: 16px;
@@ -604,45 +620,55 @@ table {
     width: 194px;
 }
 
-textarea{
+textarea {
     resize: none;
 }
+
 /* The Modal (background) */
 .modal {
-  display: none;
-  /* display: block;  */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
-  backdrop-filter: blur(3px);
+    display: none;
+    /* display: block;  */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Black w/ opacity */
+    backdrop-filter: blur(3px);
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
-  margin: 10% auto; /* 15% from the top and centered */
-  padding: 10px 36px 36px 36px;
-  border: 1px solid #888;
-  width: fit-content; /* Could be more or less, depending on screen size */
+    background-color: #fefefe;
+    margin: 10% auto;
+    /* 15% from the top and centered */
+    padding: 10px 36px 36px 36px;
+    border: 1px solid #888;
+    width: fit-content;
+    /* Could be more or less, depending on screen size */
 }
 
-.modal-header{
+.modal-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#modal-icon{
+#modal-icon {
     height: 80px;
 }
 
-.modal-grid-container{
+.modal-grid-container {
     margin: 18px 0 32px 0;
     display: grid;
     grid-template-columns: auto auto auto auto;
@@ -652,31 +678,119 @@ textarea{
 }
 
 
-#biz-address-field{
+#biz-address-field {
     grid-column: 1 / span 2;
 }
 
-#biz-address-field textarea{
+#biz-address-field textarea {
     width: 436px;
 }
 
-#del-address-field{
+#del-address-field {
     grid-column: 3 / span 2;
 }
 
-#del-address-field textarea{
+#del-address-field textarea {
     width: 436px;
 }
 
-#brand-url{
+#brand-url {
     grid-column: 1 / span 4;
 }
 
-#art-url{
+#art-url {
     width: 910px;
 }
 
-.modal-button-container{
+.modal-button-container {
     display: flex;
     justify-content: space-between;
 }
+
+.modal2 {
+    /* display: none; */
+    display: block;
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Black w/ opacity */
+    backdrop-filter: blur(3px);
+}
+
+.modal-content-2 {
+    background-color: #fefefe;
+    margin: 3% auto ;
+    /* 15% from the top and centered */
+    padding: 10px 36px 36px 36px;
+    border: 1px solid #888;
+    /* min-width: 200px; */
+    width: 650px;
+    /* Could be more or less, depending on screen size */
+}
+
+.success-message{
+    padding: 12px 0;
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+}
+
+.success-icon{
+    height: 50px;
+    margin: 0 12px 0 0;
+}
+
+.success-modal-grid{
+    margin: 18px 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    row-gap: 24px;
+}
+
+.full-row{
+    grid-column: 2 / span 2;
+}
+
+.success-button-container{
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+#successModal{
+    display: none;
+}
+
+#due-balance{
+    grid-column: 1 / span 3;
+}
+
+@media print {
+    body * {
+      visibility: hidden;
+    }
+    .button-1 {
+        display: none;
+      }
+    #successModal-content, #successModal-content * {
+      visibility: visible;
+    }
+    #successModal-content {
+      position: absolute;
+      margin: 3% auto;
+      /* transform: scale(1.15); */
+    }
+  }

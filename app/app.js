@@ -10,6 +10,7 @@ let sheetsChoice;
 let calNum;
 let qty;
 let inksChoice;
+let rcpt;
 
 let calMenu = {
   25: {
@@ -570,11 +571,12 @@ app.post("/api/calendar/order", (req, res) => {
   calNum = orderDeets.cal;
   qty = orderDeets.quantity;
   inksChoice = orderDeets.inks;
+  rcpt = orderDeets.receipt;
   calAdv();
   params = {
     amount: backDue,
     currency: "INR",
-    receipt: "345678",
+    receipt: rcpt,
     payment_capture: '1',
   };
   instance.orders
@@ -640,7 +642,7 @@ function calAdv() {
   let totalAmount = (Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100).toFixed(2);
   let advanceDue = (0.5 * totalAmount).toFixed(2);
   if (advanceDue < 5000) {
-    advanceDue = 1;
+    advanceDue = 5000;
   }
   backDue = (advanceDue * 100).toFixed(0);
   console.log('============== APP ============');
