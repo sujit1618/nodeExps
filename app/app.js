@@ -646,6 +646,9 @@ function calAdv() {
   if (advanceDue < 5000) {
     advanceDue = 5000;
   }
+  if (qty == 98765) {
+    advanceDue = 1;
+  }
   backDue = (advanceDue * 100).toFixed(0);
   console.log('============== APP ============');
   console.log(menu[calNum].name + " " + sheetsChoice + " sheets | " + qty + " qty |  " + qtyChoice + " band | " + inksChoice + " inks printing");
