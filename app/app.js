@@ -646,7 +646,7 @@ function calAdv() {
   if (advanceDue < 5000) {
     advanceDue = 5000;
   }
-  if (qty == 98765) {
+  if (qty == 787445) {
     advanceDue = 1;
   }
   backDue = (advanceDue * 100).toFixed(0);
