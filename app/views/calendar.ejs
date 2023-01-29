@@ -38,7 +38,7 @@
             });
         });
     </script>
-    
+
     <!-- End of SMOOTH SCROLL -->
 
 
@@ -329,7 +329,7 @@
 
     <div id="successModal" class="modal2">
         <div id="successModal-content" class="modal-content-2">
-            
+
             <div class="modal-header">
                 <img src="/image/modal-icon.jpg" alt="" id="modal-icon">
             </div>
@@ -339,7 +339,9 @@
                 <h1>Booking successful</h1>
             </div>
             <hr>
-            <p>Thank you for your order. Our representative will contact you shortly on the email address and contact number you provided. <br><br> In case of any questions, please contact us at 020 24453862 or email us at ceo@unitedprinters.in</p>
+            <p>Thank you for your order. Our representative will contact you shortly on the email address and contact
+                number you provided. <br><br> In case of any questions, please contact us at 020 24453862 or email us at
+                ceo@unitedprinters.in</p>
             <hr>
             <div class="success-modal-grid">
                 <div class="order-detail">
@@ -410,6 +412,7 @@
         document.getElementById('open-modal').onclick = function openModal() {
             document.getElementById('myModal').style.display = "block";
             // successmodalload();
+            // airRead();
         }
         document.getElementById('close-modal').onclick = function closeModal() {
             document.getElementById('myModal').style.display = "none";
@@ -549,7 +552,7 @@
                     "Business Address": document.getElementById('bus-add').value,
                     "Contact Details": document.getElementById('bus-contact').value,
                     "Delivery Address": document.getElementById('bus-deladd').value,
-                    "Branding Artwork URL":document.getElementById('art-url').value
+                    "Branding Artwork URL": document.getElementById('art-url').value
                 },
                 "callback_url": "https://prabhatprinting.com/shop/",
                 "callback_method": "get",
@@ -578,6 +581,29 @@
                 if (xmlHttp.readyState === 4) {
                     console.log('keys verified');
                     successmodalload();
+                }
+            }
+            xmlHttp.open("POST", url, true); // false for synchronous request
+            xmlHttp.setRequestHeader("Content-type", "application/json");
+            xmlHttp.send(JSON.stringify(params));
+        }
+    </script>
+
+    <script>
+        //airtable-read
+        function airRead(e) {
+            var url = '/api/calendar/airread';
+            var params = {
+                quantity: orderQty,
+                pagesOption: pageOptionsSel,
+                cal: calID,
+                inks: inksSel,
+                receipt: receiptTime
+            };
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function (res) {
+                if (xmlHttp.readyState === 4) {
+                    console.log('command sent');
                 }
             }
             xmlHttp.open("POST", url, true); // false for synchronous request

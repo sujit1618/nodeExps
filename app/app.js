@@ -4,6 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const crypto = require("crypto");
 const Razorpay = require("razorpay");
+var Airtable = require('airtable');
 let backDue;
 let orderDeets;
 let sheetsChoice;
@@ -507,7 +508,8 @@ app.get("/shop", (req, res) => {
 });
 app.get("/calendar", (req, res) => {
   res.render("calendar", {
-    key: process.env.KEY_ID
+    key: process.env.KEY_ID,
+    airtablekey: process.env.AIR_KEY
   });
 });
 
@@ -655,6 +657,74 @@ function calAdv() {
   console.log("Advance: " + advanceDue + " " + backDue);
   console.log('===============================');
 }
+
+function fetchAirRecs() {
+  var Airtable = require('airtable');
+  var base = new Airtable({
+    apiKey: 'patSVoaKdSBccvJJM.bd31410aec5609ac557a4ec827ef44f0cfcabca9bed0e7d5a05873f0336e1c38'
+  }).base('appCrP5JiuMPRMsbk');
+
+  base('Table 1').select({
+    filterByFormula: "{Email} = 'example@example.com'"
+}).eachPage(function page(records, fetchNextPage) {
+    // This function (`page`) will get called for each page of records.
+
+    records.forEach(function(record) {
+        console.log('Retrieved', record);
+    });
+
+    // To fetch the next page of records, call `fetchNextPage`.
+    // If there are more records, `page` will get called again.
+    // If there are no more records, `done` will get called.
+    fetchNextPage();
+
+}, function done(err) {
+    if (err) { console.error(err); return; }
+});
+}
+
+app.post("/api/calendar/airread", (req, res) => {
+  fetchAirRecs();
+});
+
+app.post("/api/calendar/airwrite", (req, res) => {
+  
+  let param = req.body;
+
+  var Airtable = require('airtable');
+var base = new Airtable({apiKey: 'patSVoaKdSBccvJJM.bd31410aec5609ac557a4ec827ef44f0cfcabca9bed0e7d5a05873f0336e1c38'}).base('appCrP5JiuMPRMsbk');
+
+base('Table 1').create([
+  {
+    "fields": {
+      "OrderID": param.orderid,
+      "BusinessName": param.businessname,
+      "Email": param.email,
+      "Contact": param.contact,
+      "BusinessAddress": param.busadd,
+      "DeliveryAddress": param.deladd,
+      "GST": param.gst,
+      "BrandArtURL": param.brandarturl,
+      "CalendarName": param.calname,
+      "Variant": param.variant,
+      "NumberOfInks": param.inks,
+      "Qty": param.qty,
+      "AdvancePaid": param.adv,
+      "TotalAmount": param.totalamt,
+      "OrderDate":param.date
+    }
+  }
+], function(err, records) {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  records.forEach(function (record) {
+    console.log(record.getId());
+  });
+});
+
+});
 
 app.listen("3000", () => {
   console.log("server started");

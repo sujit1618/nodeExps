@@ -533,7 +533,7 @@ function callCalID() {
     }
     pageOptionSelection();
 
-   
+
     if (calID == 171 || calID == 181) {
         document.getElementById('cal-qty').setAttribute('value', '100');
         document.getElementById('cal-qty').setAttribute('min', '100');
@@ -546,8 +546,7 @@ function callCalID() {
         document.getElementById('total-for-qty').innerHTML = "including GST, <br> for " + '250' + " copies";
         document.getElementById('min-qty-h3').innerHTML = "Enter quantity (min. " + '250' + ")";
         minQty = 250;
-    }
-     else {
+    } else {
         document.getElementById('cal-qty').setAttribute('value', JSON.parse(calMenu[calID].toqty));
         document.getElementById('cal-qty').setAttribute('min', JSON.parse(calMenu[calID].toqty));
         document.getElementById('total-for-qty').innerHTML = "including GST, <br> for " + (calMenu[calID].toqty) + " copies";
@@ -654,22 +653,22 @@ document.getElementById('cal-qty').onkeyup = function () {
     if (document.getElementById('cal-qty').value < minQty) {
         a.innerHTML = "Rs. &#8212;";
         d.innerHTML = "Rs. &#8212;";
-        document.getElementById('qty-error').style.display='block';
+        document.getElementById('qty-error').style.display = 'block';
         document.getElementById('order-button1').style = inactiveButton;
-        document.getElementById('qty-error').innerHTML='Please enter quantity <br> greater than ' + minQty;
+        document.getElementById('qty-error').innerHTML = 'Please enter quantity <br> greater than ' + minQty;
         document.getElementById('cal-qty').style = "background: #fff7f7;";
     }
     if (document.getElementById('cal-qty').value >= minQty) {
         document.getElementById('order-button1').style = activeButton;
         calAdv(document.getElementById('cal-qty').value);
         document.getElementById('cal-qty').style = "background: #fff;";
-        document.getElementById('qty-error').style.display='none';
+        document.getElementById('qty-error').style.display = 'none';
     }
 
     console.log('one key up');
 };
 
-function calAdv(q){
+function calAdv(q) {
     let a = document.getElementById('total-amount');
     let d = document.getElementById('due-amount');
     let sheetsChoice = pageOptionsSel;
@@ -679,33 +678,29 @@ function calAdv(q){
 
     if (qty > 99 && qty < 250 && menu[calNum][sheetsChoice][100] != null) {
         qtyChoice = 100;
-    }
-    else if(qty > 149 && qty < 250 && menu[calNum][sheetsChoice][150] != null){
+    } else if (qty > 149 && qty < 250 && menu[calNum][sheetsChoice][150] != null) {
         qtyChoice = 150;
-    }
-    else if (qty > 249 && qty < 500 && menu[calNum][sheetsChoice][250] != null){
+    } else if (qty > 249 && qty < 500 && menu[calNum][sheetsChoice][250] != null) {
         qtyChoice = 250;
-    }
-    else if (qty > 499 && qty < 1000 && menu[calNum][sheetsChoice][500] != null){
+    } else if (qty > 499 && qty < 1000 && menu[calNum][sheetsChoice][500] != null) {
         qtyChoice = 500;
-    }
-    else if (qty > 999 && menu[calNum][sheetsChoice][1000] != null){
+    } else if (qty > 999 && menu[calNum][sheetsChoice][1000] != null) {
         qtyChoice = 1000;
     }
-    
+
     console.log(menu[calNum][sheetsChoice][qtyChoice]);
     console.log(menu[calNum].name + " " + sheetsChoice + " " + qty + " " + qtyChoice + " " + inksChoice);
 
-    let amount = qty* (menu[calNum][sheetsChoice][qtyChoice].baseRate + ((inksChoice-1)* menu[calNum][sheetsChoice][qtyChoice].extraRate));
+    let amount = qty * (menu[calNum][sheetsChoice][qtyChoice].baseRate + ((inksChoice - 1) * menu[calNum][sheetsChoice][qtyChoice].extraRate));
     let roundAmount = Math.round((amount + Number.EPSILON) * 100) / 100;
     let gst = roundAmount * 0.18;
     roundGst = Math.round((gst + Number.EPSILON) * 100) / 100;
     totalAmount = (Math.round((roundAmount + roundGst + Number.EPSILON) * 100) / 100).toFixed(2);
     advanceDue = (0.5 * totalAmount).toFixed(2);
-    if(advanceDue < 5000){
+    if (advanceDue < 5000) {
         advanceDue = 5000;
     }
-    due = advanceDue*100;
+    due = advanceDue * 100;
     orderQty = qty;
     a.innerHTML = "Rs. " + totalAmount;
     d.innerHTML = "Rs. " + advanceDue;
@@ -722,7 +717,7 @@ function successmodalload() {
     document.getElementById('success-cusName').innerHTML = document.getElementById('bus-name').value;
     document.getElementById('success-cusEmail').innerHTML = document.getElementById('bus-email').value;
     document.getElementById('success-cusContact').innerHTML = document.getElementById('bus-contact').value;
-    
+
     document.getElementById('success-receipt').innerHTML = receiptTime;
     document.getElementById('success-date').innerHTML = new Date();
 
@@ -734,15 +729,45 @@ function successmodalload() {
     document.getElementById('success-balance').innerHTML = "Rs. " + balance + " + delivery charges";
     if (inksSel == 3) {
         document.getElementById('success-colours').innerHTML = inksSel + "+ colours";
-    }
-    else if(inksSel == 2){
+    } else if (inksSel == 2) {
         document.getElementById('success-colours').innerHTML = inksSel + " colours";
-    }
-    else if(inksSel == 1){
+    } else if (inksSel == 1) {
         document.getElementById('success-colours').innerHTML = inksSel + " colour";
     }
-    
+
     document.getElementById('myModal').style.display = "none";
+
+    let amt = JSON.stringify(totalAmount);
+    let adv = JSON.stringify(advanceDue);
+
+    var url = '/api/calendar/airwrite';
+    let params = {
+        orderid:receiptTime,
+        contact:document.getElementById('bus-contact').value,
+        qty:document.getElementById('success-qty').innerHTML,
+        brandarturl: document.getElementById('art-url').value,
+        businessname: document.getElementById('bus-name').value,
+        deladd: document.getElementById('bus-deladd').value,
+        adv: adv,
+        gst: document.getElementById('bus-gst').value,
+        totalamt: amt,
+        variant: document.getElementById('success-variant').innerHTML,
+        inks: document.getElementById('success-colours').innerHTML,
+        email: document.getElementById('bus-email').value,
+        calname: document.getElementById('success-calname').innerHTML,
+        busadd: document.getElementById('bus-add').value,
+        date:document.getElementById('success-date').innerHTML
+    };
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function (res) {
+        if (xmlHttp.readyState === 4) {
+            console.log('command sent');
+        }
+    };
+    xmlHttp.open("POST", url, true); // false for synchronous request
+    xmlHttp.setRequestHeader("Content-type", "application/json");
+    xmlHttp.send(JSON.stringify(params));
+
 }
 
 function closeSuccessModal() {
@@ -754,10 +779,10 @@ function printBooking() {
     window.print();
     // var element = document.getElementById("successModal");
     // var opt = {
-        // filename:     'Booking Confirmation - Prabhat Calendars.pdf',
-        // image:        { type: 'jpeg', quality: 0.98 },
-        // html2canvas:  { scale: 2 },
-        // jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    // filename:     'Booking Confirmation - Prabhat Calendars.pdf',
+    // image:        { type: 'jpeg', quality: 0.98 },
+    // html2canvas:  { scale: 2 },
+    // jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
     //   };
     //   html2pdf().set(opt).from(element).save();
 }
