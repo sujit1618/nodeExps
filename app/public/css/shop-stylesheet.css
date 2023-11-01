@@ -422,10 +422,13 @@ body {
 
 .contact-footer {
     margin: 48px auto 0 auto;
-    background-image: url(/image/contact-g.png);
+    /* background-image: url(/image/contact-g.png); */
+    background-image: url(/image/sunrise-bg-1.jpg);
     /* background-color: #fde4cc; */
-    background-position: center;
+    background-position: bottom;
     background-size: cover;
+    padding: 24px 0;
+    
 }
 
 .contact-wrapper {
@@ -433,6 +436,8 @@ body {
     max-width: 1269px;
     margin: 0 auto;
     padding: 100px 24px;
+    background-color: #ffffff6c;
+    backdrop-filter: blur(5px);
 }
 
 .main-grid {
