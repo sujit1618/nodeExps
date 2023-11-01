@@ -506,7 +506,7 @@ function callCalID() {
     console.log(calID);
     document.getElementById('calendar-name').innerHTML = calMenu[calID].name;
     // document.getElementById('cal-img').setAttribute('src', '/image/calendarpngfiles/' + calID + '.png');
-    document.getElementById('cal-img').setAttribute('src', '/image/temps/' + calID + '.jpg');
+    document.getElementById('cal-img').setAttribute('src', '/image/temps24/' + calID + '.jpg');
     document.getElementById('description').innerHTML = calMenu[calID].description;
     document.getElementById('desc2').innerHTML = calMenu[calID].desc2;
 
