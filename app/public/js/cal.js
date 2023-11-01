@@ -40,9 +40,9 @@ let calMenu = {
         "name": "51-नवनिर्णय",
         "description": "6 Sheets | 14.5 inch x 19 inch",
         "desc2": "Marathi calendar with details about festivals and moon phases. Contains two blank spaces- header of 345mm x 125mm and footer of 339mm x 54mm for your branding design",
-        "fromprice": "29.50",
+        "fromprice": "33.04",
         "fromqty": "1000",
-        "toprice": "48.97",
+        "toprice": "60.77",
         "toqty": "250"
     },
     55: {
@@ -130,7 +130,7 @@ let calMenu = {
         "name": "27-जीवन अमृत",
         "description": "6 Sheets | 11 inch x 18 inch",
         "desc2": "Marathi calendar with details about festivals and moon phases. Contains two blank spaces- header of 222mm x 97mm and top side panel of 31mm x 53mm for your branding design",
-        "fromprice": "33.34",
+        "fromprice": "22.13",
         "fromqty": "1000",
         "toprice": "67.26",
         "toqty": "150"
@@ -219,15 +219,15 @@ let menu = {
         "name": "51-नवनिर्णय",
         6: {
             250: {
-                "baseRate": 22,
+                "baseRate": 32,
                 "extraRate": 6.5
             },
             500: {
-                "baseRate": 26.25,
+                "baseRate": 29.25,
                 "extraRate": 3.75
             },
             1000: {
-                "baseRate": 25,
+                "baseRate": 28,
                 "extraRate": 2.65
             }
         }

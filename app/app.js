@@ -15,133 +15,149 @@ let rcpt;
 
 let calMenu = {
   25: {
-    "name": "25-कालदर्शिका",
-    "description": "6 Sheets | 11 inch x 18 inch",
-    "fromprice": "20.95",
-    "fromqty": "1000",
-    "toprice": "46.32",
-    "toqty": "250"
+      "name": "25-कालदर्शिका",
+      "description": "6 Sheets | 11 inch x 18 inch",
+      "desc2": "Marathi calendar with details about festivals and moon phases. Contains one blank header of 263mm x 110mm size for your branding design",
+      "fromprice": "20.95",
+      "fromqty": "1000",
+      "toprice": "46.32",
+      "toqty": "250"
   },
   31: {
-    "name": "31-उमंग",
-    "description": "6 Sheets | 11 inch x 18 inch",
-    "fromprice": "20.95",
-    "fromqty": "1000",
-    "toprice": "46.32",
-    "toqty": "250"
+      "name": "31-उमंग",
+      "description": "6 Sheets | 11 inch x 18 inch",
+      "desc2": "Marathi calendar with details about festivals and moon phases. Contains two blank spaces- header of 263mm x 110mm and footer of 240mm x 45mm for your branding design",
+      "fromprice": "20.95",
+      "fromqty": "1000",
+      "toprice": "46.32",
+      "toqty": "250"
   },
   35: {
-    "name": "35-Tarang",
-    "description": "6 Sheets | 11 inch x 18 inch",
-    "fromprice": "22.13",
-    "fromqty": "1000",
-    "toprice": "47.50",
-    "toqty": "250"
+      "name": "35-Tarang",
+      "description": "6 Sheets | 11 inch x 18 inch",
+      "desc2": "English calendar with details about festivals and moon phases. Contains two blank spaces- header of 263mm x 110mm and footer of 257mm x 46mm for your branding design",
+      "fromprice": "22.13",
+      "fromqty": "1000",
+      "toprice": "47.50",
+      "toqty": "250"
 
   },
   37: {
-    "name": "37-Sarang",
-    "description": "6 Sheets | 11 inch x 18 inch",
-    "fromprice": "22.13",
-    "fromqty": "1000",
-    "toprice": "47.50",
-    "toqty": "250"
+      "name": "37-Sarang",
+      "description": "6 Sheets | 11 inch x 18 inch",
+      "desc2": "English calendar with details about festivals and moon phases. Contains two blank spaces- header of 263mm x 110mm and footer of 257mm x 46mm for your branding design",
+      "fromprice": "22.13",
+      "fromqty": "1000",
+      "toprice": "47.50",
+      "toqty": "250"
   },
   51: {
-    "name": "51-नवनिर्णय",
-    "description": "6 Sheets | 14.5 inch x 19 inch",
-    "fromprice": "29.50",
-    "fromqty": "1000",
-    "toprice": "48.97",
-    "toqty": "250"
+      "name": "51-नवनिर्णय",
+      "description": "6 Sheets | 14.5 inch x 19 inch",
+      "desc2": "Marathi calendar with details about festivals and moon phases. Contains two blank spaces- header of 345mm x 125mm and footer of 339mm x 54mm for your branding design",
+      "fromprice": "33.04",
+      "fromqty": "1000",
+      "toprice": "60.77",
+      "toqty": "250"
   },
   55: {
-    "name": "55-Stride",
-    "description": "6 Sheets | 14.5 inch x 19 inch",
-    "fromprice": "29.50",
-    "fromqty": "1000",
-    "toprice": "57.23",
-    "toqty": "250"
+      "name": "55-Stride",
+      "description": "6 Sheets | 14.5 inch x 19 inch",
+      "desc2": "English calendar with details about festivals and moon phases. Contains two blank spaces- header of 345mm x 125mm and center footer of 162mm x 51mm for your branding design",
+      "fromprice": "29.50",
+      "fromqty": "1000",
+      "toprice": "57.23",
+      "toqty": "250"
   },
   111: {
-    "name": "111-Grace",
-    "description": "12 Sheets | 14.5 inch x 19 inch",
-    "fromprice": "41.30",
-    "fromqty": "1000",
-    "toprice": "102.66",
-    "toqty": "100"
+      "name": "111-Grace",
+      "description": "12 Sheets | 14.5 inch x 19 inch",
+      "desc2": "English calendar containing two blank spaces- header of 345mm x 160mm and center footer of 115mm x 72mm for your branding design",
+      "fromprice": "41.30",
+      "fromqty": "1000",
+      "toprice": "102.66",
+      "toqty": "100"
   },
   141: {
-    "name": "141-Bright",
-    "description": "12 Sheets | 14.5 inch x 19 inch",
-    "fromprice": "41.30",
-    "fromqty": "1000",
-    "toprice": "102.66",
-    "toqty": "100",
+      "name": "141-Bright",
+      "description": "12 Sheets | 14.5 inch x 19 inch",
+      "desc2": "English calendar containing two blank spaces- header of 345mm x 160mm and center footer of 144mm x 61mm for your branding design",
+      "fromprice": "41.30",
+      "fromqty": "1000",
+      "toprice": "102.66",
+      "toqty": "100",
   },
   161: {
-    "name": "161-Smash",
-    "description": "6 Sheets & 12 Sheets | 17.5 inch x 22.5 inch",
-    "fromprice": "40.12",
-    "fromqty": "(6 Sheets) 1000",
-    "toprice": "86.44",
-    "toqty": "(12 Sheets) 250"
+      "name": "161-Smash",
+      "description": "6 Sheets & 12 Sheets | 17.5 inch x 22.5 inch",
+      "desc2": "English calendar containing two blank spaces- header of 425mm x 160mm and center footer of 135mm x 76mm for your branding design",
+      "fromprice": "40.12",
+      "fromqty": "(6 Sheets) 1000",
+      "toprice": "86.44",
+      "toqty": "(12 Sheets) 250"
   },
   81: {
-    "name": "81-Spark",
-    "description": "6 Sheets | 14.5 inch x 19 inch",
-    "fromprice": "28.32",
-    "fromqty": "1000",
-    "toprice": "56.05",
-    "toqty": "250",
+      "name": "81-Spark",
+      "description": "6 Sheets | 14.5 inch x 19 inch",
+      "desc2": "English calendar containing two blank spaces- header of 345mm x 160mm and center footer of 145mm x 55mm for your branding design",
+      "fromprice": "28.32",
+      "fromqty": "1000",
+      "toprice": "56.05",
+      "toqty": "250",
   },
   171: {
-    "name": "171-Majestic",
-    "description": "6 Sheets & 12 Sheets | 19 inch x 29 inch",
-    "fromprice": "51.92",
-    "fromqty": "(6 Sheets) 1000",
-    "toprice": "133.34",
-    "toqty": "(12 Sheets) 100"
+      "name": "171-Majestic",
+      "description": "6 Sheets & 12 Sheets | 19 inch x 29 inch",
+      "desc2": "English calendar containing two blank spaces- header of 473mm x 160mm and center footer of 162mm x 77mm for your branding design",
+      "fromprice": "51.92",
+      "fromqty": "(6 Sheets) 1000",
+      "toprice": "133.34",
+      "toqty": "(12 Sheets) 100"
   },
   181: {
-    "name": "181-Classic",
-    "description": "6 Sheets & 12 Sheets | 19 inch x 29 inch",
-    "fromprice": "62.54",
-    "fromqty": "(6 Sheets) 1000",
-    "toprice": "143.96",
-    "toqty": "(12 Sheets) 100",
+      "name": "181-Classic",
+      "description": "6 Sheets & 12 Sheets | 19 inch x 29 inch",
+      "desc2": "English calendar containing two blank spaces- header of 473mm x 160mm and center footer of 142mm x 83mm for your branding design",
+      "fromprice": "62.54",
+      "fromqty": "(6 Sheets) 1000",
+      "toprice": "143.96",
+      "toqty": "(12 Sheets) 100",
   },
   131: {
-    "name": "131-Serene",
-    "description": "6 Sheets | 19 inch x 29 inch",
-    "fromprice": "41.30",
-    "fromqty": "1000",
-    "toprice": "102.66",
-    "toqty": "100"
+      "name": "131-Serene",
+      "description": "6 Sheets | 19 inch x 29 inch",
+      "desc2": "English calendar containing two blank spaces- header of 473mm x 160mm and center footer of 142mm x 108mm for your branding design",
+      "fromprice": "41.30",
+      "fromqty": "1000",
+      "toprice": "102.66",
+      "toqty": "100"
   },
   91: {
-    "name": "91-Glimpse",
-    "description": "4 Sheets | 19 inch x 29 inch",
-    "fromprice": "33.34",
-    "fromqty": "1000",
-    "toprice": "56.94",
-    "toqty": "250"
+      "name": "91-Glimpse",
+      "description": "4 Sheets | 19 inch x 29 inch",
+      "desc2": "English calendar containing four blank spaces- one header of 473mm x 160mm and three side panels of 110mm x 140mm each for your branding design",
+      "fromprice": "33.34",
+      "fromqty": "1000",
+      "toprice": "56.94",
+      "toqty": "250"
   },
   27: {
-    "name": "27-जीवन अमृत",
-    "description": "6 Sheets | 11 inch x 18 inch",
-    "fromprice": "33.34",
-    "fromqty": "1000",
-    "toprice": "67.26",
-    "toqty": "150"
+      "name": "27-जीवन अमृत",
+      "description": "6 Sheets | 11 inch x 18 inch",
+      "desc2": "Marathi calendar with details about festivals and moon phases. Contains two blank spaces- header of 222mm x 97mm and top side panel of 31mm x 53mm for your branding design",
+      "fromprice": "22.13",
+      "fromqty": "1000",
+      "toprice": "67.26",
+      "toqty": "150"
   },
   17: {
-    "name": "17-Seasons",
-    "description": "6 Sheets | 5 inch x 10 inch",
-    "fromprice": "12.39",
-    "fromqty": "1000",
-    "toprice": "24.07",
-    "toqty": "500"
+      "name": "17-Seasons",
+      "description": "6 Sheets | 5 inch x 10 inch",
+      "desc2": "English calendar with professionally taken photographs. Contains one blank space- header of 110mm x 54mm for your branding design",
+      "fromprice": "12.39",
+      "fromqty": "1000",
+      "toprice": "24.07",
+      "toqty": "500"
   }
 };
 
@@ -218,15 +234,15 @@ let menu = {
     "name": "51-नवनिर्णय",
     6: {
       250: {
-        "baseRate": 22,
+        "baseRate": 32,
         "extraRate": 6.5
       },
       500: {
-        "baseRate": 26.25,
+        "baseRate": 29.25,
         "extraRate": 3.75
       },
       1000: {
-        "baseRate": 25,
+        "baseRate": 28,
         "extraRate": 2.65
       }
     }
@@ -669,11 +685,11 @@ function fetchAirRecs() {
 
   base('Table 1').select({
     filterByFormula: "{Email} = 'example@example.com'"
-}).eachPage(function page(records, fetchNextPage) {
+  }).eachPage(function page(records, fetchNextPage) {
     // This function (`page`) will get called for each page of records.
 
-    records.forEach(function(record) {
-        console.log('Retrieved', record);
+    records.forEach(function (record) {
+      console.log('Retrieved', record);
     });
 
     // To fetch the next page of records, call `fetchNextPage`.
@@ -681,9 +697,12 @@ function fetchAirRecs() {
     // If there are no more records, `done` will get called.
     fetchNextPage();
 
-}, function done(err) {
-    if (err) { console.error(err); return; }
-});
+  }, function done(err) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+  });
 }
 
 app.post("/api/calendar/airread", (req, res) => {
@@ -691,14 +710,15 @@ app.post("/api/calendar/airread", (req, res) => {
 });
 
 app.post("/api/calendar/airwrite", (req, res) => {
-  
+
   let param = req.body;
 
   var Airtable = require('airtable');
-var base = new Airtable({apiKey: 'patSVoaKdSBccvJJM.bd31410aec5609ac557a4ec827ef44f0cfcabca9bed0e7d5a05873f0336e1c38'}).base('appCrP5JiuMPRMsbk');
+  var base = new Airtable({
+    apiKey: 'patSVoaKdSBccvJJM.bd31410aec5609ac557a4ec827ef44f0cfcabca9bed0e7d5a05873f0336e1c38'
+  }).base('appCrP5JiuMPRMsbk');
 
-base('Table 1').create([
-  {
+  base('Table 1').create([{
     "fields": {
       "OrderID": param.orderid,
       "BusinessName": param.businessname,
@@ -714,18 +734,17 @@ base('Table 1').create([
       "Qty": param.qty,
       "AdvancePaid": param.adv,
       "TotalAmount": param.totalamt,
-      "OrderDate":param.date
+      "OrderDate": param.date
     }
-  }
-], function(err, records) {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  records.forEach(function (record) {
-    console.log(record.getId());
+  }], function (err, records) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    records.forEach(function (record) {
+      console.log(record.getId());
+    });
   });
-});
 
 });
 

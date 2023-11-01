@@ -35,9 +35,9 @@ let calMenu = {
     51: {
         "name": "51-नवनिर्णय",
         "description": "6 Sheets | 14.5 inch x 19 inch",
-        "fromprice": "29.50",
+        "fromprice": "33.04",
         "fromqty": "1000",
-        "toprice": "48.97",
+        "toprice": "60.77",
         "toqty": "250"
     },
     55: {
@@ -115,7 +115,7 @@ let calMenu = {
     27: {
         "name": "27-जीवन अमृत",
         "description": "6 Sheets | 11 inch x 18 inch",
-        "fromprice": "33.34",
+        "fromprice": "22.13",
         "fromqty": "1000",
         "toprice": "67.26",
         "toqty": "150"
@@ -125,7 +125,7 @@ let calMenu = {
         "description": "6 Sheets | 5 inch x 10 inch",
         "fromprice": "12.39",
         "fromqty": "1000",
-        "toprice": "24.07",
+        "toprice": "24.08",
         "toqty": "500"
     }
 };
